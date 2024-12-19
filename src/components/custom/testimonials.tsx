@@ -18,7 +18,7 @@ const testimonials: TestimonialType[] = [
     id: 2,
     name: "Brian",
     role: "Lend with aloha",
-    comment: "The Zulu team is excellent – skilled engineers, great to work with. I look forward to continuing our collaboration through a new contract.",
+    comment: "The Zulu team is excellent - skilled engineers, great to work with. I look forward to continuing our collaboration through a new contract.",
     rating: 5,
     image: "/avatar2.jpg",
   },
@@ -73,7 +73,7 @@ export const Testimonials = () => {
                   <div>
                     <h4 className="font-semibold">{testimonial.name}</h4>
                     <p className="text-gray-600 dark:text-white">
-                      {testimonial.role}
+                      {`"${testimonial.role}"`}
                     </p>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export const Testimonials = () => {
                   ))}
                 </div>
                 <p className="text-gray-600 dark:text-white">
-                  "{testimonial.comment}"
+                  {`"${testimonial.comment}"`}
                 </p>
               </Card>
             </motion.div>

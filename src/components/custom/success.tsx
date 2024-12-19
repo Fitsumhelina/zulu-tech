@@ -5,6 +5,7 @@ import { SuccessStory } from "@/lib/types";
 import { Button } from "../ui/button";
 import { MoveUpRight, View } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const successStories: SuccessStory[] = [
   {
@@ -145,7 +146,7 @@ export const Success = () => {
                       <div className="flex mt-4 gap-1">
                         {story.techStack.map((link, index) => (
                           <div key={index} className="">
-                            <img
+                            <Image
                               src={link.url}
                               className="text-lg h-8 w-14"
                               alt={link.name}
