@@ -94,10 +94,10 @@ export default function ContactPage() {
                   </Link>
                 </div> */}
                 <h2 className="text-[#7B7FF6] text-2xl font-semibold mb-4">
-                  Haven't Found What You Were Looking For?
+                  {"Haven't Found What You Were Looking For?"}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-8">
-                  Please briefly describe your question, and we'll get back with an answer shortly.
+                  {"Please briefly describe your question, and we'll get back with an answer shortly."}
                 </p>
 
                 <form className="space-y-6" onSubmit={validateForm}>

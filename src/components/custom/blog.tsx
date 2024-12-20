@@ -82,34 +82,34 @@ export const BlogsPage = () => {
         {/* Blog List */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
-          <Link href={blog.link}>
-            <motion.div
-              key={blog.id}
-              className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="relative h-48">
-                <Image
-                  src={blog.image}
-                  alt={blog.title}
-                  className="h-52 w-full object-cover"
-                  width={400}
-                  height={400}
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">
-                  {blog.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  {blog.description}
-                </p>
-                <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
-                  <span>{blog.date}</span>
-                  <span>By {blog.author}</span>
+            <Link href={blog.link} key={blog.id}>
+              <motion.div
+                key={blog.id}
+                className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={blog.image}
+                    alt={blog.title}
+                    className="h-52 w-full object-cover"
+                    width={400}
+                    height={400}
+                  />
                 </div>
-              </div>
-            </motion.div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">
+                    {blog.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {blog.description}
+                  </p>
+                  <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+                    <span>{blog.date}</span>
+                    <span>By {blog.author}</span>
+                  </div>
+                </div>
+              </motion.div>
             </Link>
           ))}
         </div>
