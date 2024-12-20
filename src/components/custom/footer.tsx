@@ -19,7 +19,7 @@ export const Footer = () => {
           </div>
           <div className="grid grid-cols md:grid-cols-2 gap-8 sm:gap-20 mb-4">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
                 Service
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -29,7 +29,7 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibol uppercase text-white">
                 Get in Touch
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -49,56 +49,57 @@ export const Footer = () => {
             </div>
           </div>
           <div>
-            <div className="flex gap-5">
-              <Link
-                href="https://www.upwork.com/agencies/zulu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-white hover:text-gray-200"
-              >
-                <FaUpwork className="w-6 h-6" />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/company/zulu-software/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-white hover:text-gray-200"
-              >
-                <FaLinkedin className="w-6 h-6" />
-              </Link>
-              <Link
-                href="https://www.tiktok.com/@zulu_tech?_t=8sJIKXbjuI2&_r=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-white hover:text-gray-200"
-              >
-                <FaTiktok className="w-6 h-6" />
-              </Link>
-              <Link
-                href="https://www.instagram.com/zulutech_/profilecard/?igsh=MXhkOW02ejNpZnRicQ=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-white hover:text-gray-200"
-              >
-                <FaInstagram className="w-6 h-6" />
-              </Link>
-              <Link
-                href="https://www.facebook.com/profile.php?id=61565672262914&mibextid=kFxxJD"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-white hover:text-gray-200"
-              >
-                <FaFacebook className="w-6 h-6" />
-              </Link>
-              <Link
-                href="https://www.youtube.com/@zulu-tech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-white hover:text-gray-200"
-              >
-                <FaYoutube className="w-6 h-6" />
-              </Link>
-            </div>
+               {/* social media */}
+               <div className="flex md:flex-col gap-5 text-gray-200">
+                  <Link
+                    href="https://www.upwork.com/agencies/zulu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <FaUpwork className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/company/zulu-software/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block "
+                  >
+                    <FaLinkedin className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.tiktok.com/@zulu_tech?_t=8sJIKXbjuI2&_r=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block "
+                  >
+                    <FaTiktok className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/zulutech_/profilecard/?igsh=MXhkOW02ejNpZnRicQ=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <FaInstagram className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.facebook.com/profile.php?id=61565672262914&mibextid=kFxxJD"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block "
+                  >
+                    <FaFacebook className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.youtube.com/@zulu-tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <FaYoutube className="w-6 h-6" />
+                  </Link>
+                </div>
           </div>
         </div>
 

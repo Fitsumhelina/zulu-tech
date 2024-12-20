@@ -31,9 +31,7 @@ export default function LandingPage() {
       <div data-aos="flip-right">
         <Stats />
       </div>
-      <div data-aos="zoom-in">
-        <Success />
-      </div>
+     
       <div data-aos="fade-up">
         <Features />
       </div>

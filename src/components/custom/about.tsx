@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import TeamSection from "../team/TeamSection";
 
 const teamMembers = [
   {
@@ -14,7 +15,7 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Tesfaye A.",
+    name: "",
     role: "Chief Technology Officer",
     image: "/images/tesfish.jpg",
     fallback: "TA",
@@ -28,23 +29,6 @@ const teamMembers = [
   },
 ];
 
-const achievements = [
-  {
-    id: 1,
-    title: "15+",
-    description: "Happy Clients",
-  },
-  {
-    id: 2,
-    title: "20+",
-    description: "Projects Delivered",
-  },
-  {
-    id: 3,
-    title: "5+",
-    description: "Countries Served",
-  },
-];
 
 export const AboutUs = () => {
   const { theme } = useTheme();
@@ -88,7 +72,7 @@ export const AboutUs = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6 text-blue-800">Our Story</h2>
           <p className="text-lg leading-7 text-gray-600 dark:text-white">
-            Zulu Tech was founded in 2015 with a vision to bring innovative
+            Zulu Tech was founded in 2024 with a vision to bring innovative
             solutions to the tech industry. What started as a small group of
             passionate developers has grown into a global company serving
             thousands of clients worldwide. Our mission is to empower businesses
@@ -96,46 +80,14 @@ export const AboutUs = () => {
           </p>
         </section>
 
-        {/* Achievements */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-blue-800">Our Success</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {achievements.map((achievement) => (
-              <div
-                key={achievement.id}
-                className="p-6 bg-gray-100 dark:text-white  dark:bg-[#05132e] shadow rounded-lg"
-              >
-                <h3 className="text-2xl font-semibold mb-4 dark:bg-[#05132e]">
-                  {achievement.title}
-                </h3>
-                <p className="text-gray-600 dark:text-white">
-                  {achievement.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+ 
 
         {/* Meet the Team */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6 text-blue-800">
             Meet Our Team
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member) => (
-              <div
-                key={member.id}
-                className="bg-gray-100  dark:text-white dark:bg-[#05132e] shadow rounded-lg p-6 flex flex-col items-center justify-center"
-              >
-                <Avatar className="size-20">
-                  <AvatarImage src={member.image} alt={member.name} />
-                  <AvatarFallback>{member.fallback}</AvatarFallback>
-                </Avatar>
-                <h3 className="text-lg font-semibold">{member.name}</h3>
-                <p className="text-gray-500 dark:text-white">{member.role}</p>
-              </div>
-            ))}
-          </div>
+          <TeamSection />
         </section>
 
         {/* Vision and Mission */}

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+import Link from "next/link";
 const blogs = [
   {
     id: 1,
@@ -14,6 +15,7 @@ const blogs = [
       "https://media.licdn.com/dms/image/v2/D4E22AQHossJ0_iuQOA/feedshare-shrink_800/feedshare-shrink_800/0/1733815154041?e=2147483647&v=beta&t=pAfp_zB0tsSLuVssG6u5FpKOraaV4kK_Q2gfGx89T9Y",
     date: "December 13, 2024",
     author: "Ketema G ",
+    link: "https://www.linkedin.com/posts/zulu-software_teamwork-success-zulutech-activity-7272147846055788544-QV10?utm_source=share&utm_medium=member_android"
   },
   {
     id: 2,
@@ -26,6 +28,7 @@ const blogs = [
       "https://images.ctfassets.net/pdf29us7flmy/dnl4o6zfF0zRWbY441wV0/f25aacef71cf7b39eb3126ee6c7f846d/datawarehouse1_GettyImages-482872096_.jpeg?w=720&q=100&fm=jpg",
     date: "November 28, 2024",
     author: "Admasu A.",
+    link: "https://www.linkedin.com/posts/zulu-software_teamwork-success-zulutech-activity-7269574411433689088-WswR?utm_source=share&utm_medium=member_android"
   },
   {
     id: 3,
@@ -37,6 +40,7 @@ const blogs = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzhZamBXaYeXmChQ7nMTF8RlFhTULcw43FAQ&sg",
     date: "October 15, 2024",
     author: "Tesfaye A",
+    link: "https://www.linkedin.com/posts/zulu-software_knowyourworth-upworksuccess-zuluagency-activity-7266836129977450497-rUiV?utm_source=share&utm_medium=member_android"
   },
 ];
 
@@ -78,6 +82,7 @@ export const BlogsPage = () => {
         {/* Blog List */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
+          <Link href={blog.link}>
             <motion.div
               key={blog.id}
               className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow overflow-hidden"
@@ -105,6 +110,7 @@ export const BlogsPage = () => {
                 </div>
               </div>
             </motion.div>
+            </Link>
           ))}
         </div>
       </div>

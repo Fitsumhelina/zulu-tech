@@ -9,6 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm, ValidationError } from "@formspree/react";
+import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
+import { FaLinkedin, FaTiktok, FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaUpwork } from "react-icons/fa6";
 
 type FormErrors = {
   name?: string;
@@ -67,10 +70,10 @@ export default function ContactPage() {
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-white/10 transform -skew-y-6" />
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-white/5 transform -skew-y-6" />
 
-          <div className="bg-white rounded-lg shadow-xl p-8 relative">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 relative">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="text-black">
-                <div className="absolute max-sm:top-0 max-sm:sticky top-[50%] right-2 transform -translate-y-1/2  w-12 bg-blue-500 rounded-l-lg p-2 space-y-4">
+                {/* <div className="absolute max-sm:top-0 max-sm:sticky top-[50%] right-2 transform -translate-y-1/2  w-12 bg-blue-500 rounded-l-lg p-2 space-y-4">
                   <Link
                     href="#"
                     className="block text-white hover:text-gray-200"
@@ -89,44 +92,22 @@ export default function ContactPage() {
                   >
                     <Linkedin className="w-6 h-6" />
                   </Link>
-                </div>
-                <h2 className="text-[#7B7FF6] text-3xl font-semibold mb-4">
-                  Get In Touch &#128075;
+                </div> */}
+                <h2 className="text-[#7B7FF6] text-2xl font-semibold mb-4">
+                  Haven't Found What You Were Looking For?
                 </h2>
-                <p className="text-gray-600 mb-8">
-                  We are here for you! How can we help?
+                <p className="text-gray-600 dark:text-gray-300 mb-8">
+                  Please briefly describe your question, and we'll get back with an answer shortly.
                 </p>
 
                 <form className="space-y-6" onSubmit={validateForm}>
-                  <div>
-                    <Input
-                      type="text"
-                      name="name"
-                      placeholder="Enter your name"
-                      className="bg-[#F4F4FE] border-0 outline-none py-7"
-                    />
-                    {formErrors.name && (
-                      <p className="text-red-500 text-sm">{formErrors.name}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Input
-                      type="email"
-                      name="email"
-                      placeholder="Enter your email address"
-                      className="bg-[#F4F4FE] border-0 outline-none py-7"
-                    />
-                    {formErrors.email && (
-                      <p className="text-red-500 text-sm">{formErrors.email}</p>
-                    )}
-                  </div>
 
                   <div>
                     <Textarea
                       name="message"
-                      placeholder="Go ahead, we are listening..."
-                      className="bg-[#F4F4FE] border-0 min-h-[120px] resize-none"
+                      placeholder="please describe your question here..."
+                      className="  border-gray-200 text-black dark:text-white py-2 min-h-[120px]"
+
                     />
                     {formErrors.message && (
                       <p className="text-red-500 text-sm">
@@ -134,6 +115,37 @@ export default function ContactPage() {
                       </p>
                     )}
                   </div>
+
+                  <div className="flex justify-between gap-2">
+                    <div className="w-1/2">
+                      <Input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your name"
+                        className="  outline-none text-black dark:text-white border-gray-200 py-7"
+                      />
+                      {formErrors.name && (
+                        <p className="text-red-500 text-sm">{formErrors.name}</p>
+                      )}
+                    </div>
+
+                    <div className="w-1/2">
+                      <Input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        className=" border-gray-200 text-black dark:text-white outline-none py-7"
+
+
+                      />
+                      {formErrors.email && (
+                        <p className="text-red-500 text-sm">{formErrors.email}</p>
+                      )}
+                    </div>
+
+                  </div>
+
+
 
                   <Button
                     type="submit"
@@ -145,36 +157,86 @@ export default function ContactPage() {
                 </form>
               </div>
 
-              <div className="flex flex-col justify-between">
-                <div className="relative h-64 mb-8">
-                  <Image
-                    src="/images/contact-us.avif"
-                    alt="Contact illustration"
-                    className="object-contain"
-                    width={400}
-                    height={400}
-                  />
+              <div className="flex flex-col md:flex-row  justify-around md:border-2 border-gray-200 rounded-xl items-center">
+
+
+
+                <div className="flex flex-col items-center  text-black dark:text-white">
+                  <div className="rounded-md  mb-8">
+                    <Image
+                      src="/images/contact-us.avif"
+                      alt="Contact illustration"
+                      className="object-contain  rounded-md"
+                      width={200}
+                      height={200}
+                    />
+                  </div>
+                  <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                    <li className="mb-4 flex items-center">
+                      <MdLocationOn className="mr-2 text-black dark:text-white" />
+                      Addis Ababa, Ethiopia
+                    </li>
+                    <li className="mb-4 flex items-center">
+                      <MdPhone className="mr-2" />
+                      +251912323811
+                    </li>
+                    <li className="mb-4 flex items-center">
+                      <MdEmail className="mr-2 text-b;ack dark:text-white" />
+                      Zuulu.tech@gmail.com
+                    </li>
+                  </ul>
                 </div>
 
-                <div className="space-y-4 text-gray-600">
-                  <div className="flex items-center gap-4">
-                    <div className="w-8 h-8 rounded-full bg-[#F4F4FE] flex items-center justify-center">
-                      <span className="text-[#7B7FF6]">📞</span>
-                    </div>
-                    +251-912-323811
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-8 h-8 rounded-full bg-[#F4F4FE] flex items-center justify-center">
-                      <span className="text-[#7B7FF6]">📞</span>
-                    </div>
-                    +251-73350968
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-8 h-8 rounded-full bg-[#F4F4FE] flex items-center justify-center">
-                      <span className="text-[#7B7FF6]">✉️</span>
-                    </div>
-                    zulu.tech@gmail.com
-                  </div>
+                {/* social media */}
+                <div className="flex md:flex-col gap-5 text-gray-800 dark:text-gray-200">
+                  <Link
+                    href="https://www.upwork.com/agencies/zulu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <FaUpwork className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/company/zulu-software/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block "
+                  >
+                    <FaLinkedin className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.tiktok.com/@zulu_tech?_t=8sJIKXbjuI2&_r=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block "
+                  >
+                    <FaTiktok className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/zulutech_/profilecard/?igsh=MXhkOW02ejNpZnRicQ=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <FaInstagram className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.facebook.com/profile.php?id=61565672262914&mibextid=kFxxJD"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block "
+                  >
+                    <FaFacebook className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://www.youtube.com/@zulu-tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <FaYoutube className="w-6 h-6" />
+                  </Link>
                 </div>
               </div>
             </div>

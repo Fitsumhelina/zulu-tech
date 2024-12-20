@@ -4,10 +4,10 @@ import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 
 const stats = [
-  { value: 96, label: "Success Rate", suffix: "%" },
-  { value: 450, label: "Happy Customer", suffix: "+" },
-  { value: 369, label: "Completed Projects", suffix: "+" },
-  { value: 36, label: "Trade In The World", suffix: "+" },
+  { value: 100, label: "Success Rate", suffix: "%" },
+  { value: 10, label: "Happy Customer", suffix: "+" },
+  { value: 20, label: "Completed Projects", suffix: "+" },
+  { value: 5, label: "Trade In The World", suffix: "+" },
 ];
 
 export const Stats = () => {

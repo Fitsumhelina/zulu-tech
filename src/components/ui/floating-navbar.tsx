@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -18,11 +18,34 @@ export const FloatingNav = ({
 }) => {
   const pathname = usePathname();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
+
+  // Close the drawer when clicking outside of it
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        drawerRef.current &&
+        !drawerRef.current.contains(event.target as Node)
+      ) {
+        setIsDrawerOpen(false);
+      }
+    };
+
+    if (isDrawerOpen) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isDrawerOpen]);
 
   return (
-    <div className="fixed  left-4 right-0 max-sm:left-1 z-[5000] dark:bg-[#05132e] max-sm:w-[24px]">
+    <div className="fixed left-4 right-0 max-sm:left-1 z-[5000] dark:bg-[#05132e] max-sm:w-[24px]">
       {/* Mobile/Small Screen Drawer Toggle */}
-      <div className="sm:hidden  flex justify-between items-center px-4 py-2 bg-white dark:bg-[#05132e] w-max shadow-md">
+      <div className="sm:hidden flex justify-between items-center px-4 py-2 bg-white dark:bg-[#05132e] w-max">
         <button
           onClick={() => setIsDrawerOpen(!isDrawerOpen)}
           className="text-black dark:text-white focus:outline-none"
@@ -35,6 +58,7 @@ export const FloatingNav = ({
       <AnimatePresence>
         {isDrawerOpen && (
           <motion.div
+            ref={drawerRef}
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
@@ -50,8 +74,8 @@ export const FloatingNav = ({
                   className={cn(
                     "block px-4 py-2 rounded-md text-lg transition-all",
                     pathname === navItem.link
-                      ? "bg-black text-white dark:bg-white dark:text-black"
-                      : "text-black hover:bg-gray-100 dark:text-white  dark:hover:bg-gray-800"
+                      ? "bg-gray-800 text-white dark:bg-white dark:text-gray-800"
+                      : "text-gray-800 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
                   )}
                 >
                   {navItem.name}
@@ -78,9 +102,10 @@ export const FloatingNav = ({
               key={`nav-link-${idx}`}
               href={navItem.link}
               className={cn(
-                "relative items-center flex space-x-1 text-sm  px-4 py-2 rounded-full transition-all",
+                "relative items-center flex space-x-1 text-sm px-4 py-2 rounded-full transition-all",
                 "hover:text-black hover:dark:text-white hover:border dark:hover:border-white/[0.2] border-transparent",
-                pathname === navItem.link
+
+pathname === navItem.link
                   ? "text-black dark:text-white border border-gray-400 dark:border-white/[0.2]"
                   : "text-neutral-600 dark:text-neutral-50"
               )}
@@ -89,10 +114,6 @@ export const FloatingNav = ({
               <span className="hidden sm:block">{navItem.name}</span>
             </Link>
           ))}
-          {/* <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-            <span>Login</span>
-            <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
-          </button> */}
         </motion.div>
       </AnimatePresence>
     </div>

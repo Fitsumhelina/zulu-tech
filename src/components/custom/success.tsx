@@ -150,6 +150,8 @@ export const Success = () => {
                               src={link.url}
                               className="text-lg h-8 w-14"
                               alt={link.name}
+                              width={100}
+                              height={100}
                             />
                           </div>
                         ))}{" "}
