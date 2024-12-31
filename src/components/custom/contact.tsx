@@ -211,7 +211,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="block "
                   >
-                    <FaTiktok className="w-6 h-6" />
+                    <FaTiktok className="w-6 h-6 " />
                   </Link>
                   <Link
                     href="https://www.instagram.com/zulutech_/profilecard/?igsh=MXhkOW02ejNpZnRicQ=="
