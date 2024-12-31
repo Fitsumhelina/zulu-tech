@@ -1,9 +1,12 @@
-"use client";
-import React, { useState, useRef, useEffect } from "react";
+"use client"
+
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "../custom/logo";
+import { MdMenu } from "react-icons/md";
 
 export const FloatingNav = ({
   navItems,
@@ -18,71 +21,62 @@ export const FloatingNav = ({
 }) => {
   const pathname = usePathname();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const drawerRef = useRef<HTMLDivElement>(null);
-
-  // Close the drawer when clicking outside of it
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (
-        drawerRef.current &&
-        !drawerRef.current.contains(event.target as Node)
-      ) {
-        setIsDrawerOpen(false);
-      }
-    };
-
-    if (isDrawerOpen) {
-      document.addEventListener("mousedown", handleOutsideClick);
-    } else {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [isDrawerOpen]);
 
   return (
     <div className="fixed left-4 right-0 max-sm:left-1 z-[5000] dark:bg-[#05132e] max-sm:w-[24px]">
       {/* Mobile/Small Screen Drawer Toggle */}
-      <div className="sm:hidden flex justify-between items-center px-4 py-2 bg-white dark:bg-[#05132e] w-max">
+      <div className="sm:hidden flex justify-between items-center pl-6 px-4 py-2 bg-white dark:bg-[#05132e] w-max ">
         <button
           onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-          className="text-black dark:text-white focus:outline-none"
+          className="text-black dark:text-white focus:outline-none text-lg"
         >
-          ☰ {/* Simple menu icon, can replace with an SVG/icon */}
+         <MdMenu className="h-[28px] w-[28px]"/>
         </button>
       </div>
 
-      {/* Drawer for Small Screens */}
+      {/* Drawer and Backdrop for Small Screens */}
       <AnimatePresence>
         {isDrawerOpen && (
-          <motion.div
-            ref={drawerRef}
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 bottom-0 w-3/4 bg-white dark:bg-[#05132e] shadow-lg z-[6000] overflow-y-auto"
-          >
-            <div className="flex flex-col space-y-4 p-4">
-              {navItems.map((navItem, idx) => (
-                <Link
-                  key={`drawer-link-${idx}`}
-                  href={navItem.link}
-                  onClick={() => setIsDrawerOpen(false)}
-                  className={cn(
-                    "block px-4 py-2 rounded-md text-lg transition-all",
-                    pathname === navItem.link
-                      ? "bg-gray-800 text-white dark:bg-white dark:text-gray-800"
-                      : "text-gray-800 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
-                  )}
-                >
-                  {navItem.name}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-50 z-[5999]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsDrawerOpen(false)} // Close drawer on backdrop click
+            />
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.3 }}
+              className="fixed top-0 left-0 bottom-0 w-3/4 bg-white dark:bg-[#05132e] shadow-lg z-[6000] overflow-y-auto"
+            >
+              <div className="p-3">
+                <Logo width={150} height={150} />
+              </div>
+
+              <div className="flex flex-col space-y-4 p-4 mt-3">
+                {navItems.map((navItem, idx) => (
+                  <Link
+                    key={`drawer-link-${idx}`}
+                    href={navItem.link}
+                    onClick={() => setIsDrawerOpen(false)}
+                    className={cn(
+                      "block px-4 py-2 rounded-md text-lg transition-all",
+                      pathname === navItem.link
+                        ? "bg-[#032157] text-white dark:bg-white dark:text-black"
+                        : "text-black hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
+                    )}
+                  >
+                    {navItem.name}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
@@ -104,8 +98,7 @@ export const FloatingNav = ({
               className={cn(
                 "relative items-center flex space-x-1 text-sm px-4 py-2 rounded-full transition-all",
                 "hover:text-black hover:dark:text-white hover:border dark:hover:border-white/[0.2] border-transparent",
-
-pathname === navItem.link
+                pathname === navItem.link
                   ? "text-black dark:text-white border border-gray-400 dark:border-white/[0.2]"
                   : "text-neutral-600 dark:text-neutral-50"
               )}

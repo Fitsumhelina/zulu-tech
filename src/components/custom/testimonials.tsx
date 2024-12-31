@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef } from "react";
 
 import { Card } from "@/components/ui/card";
 import { TestimonialType } from "@/lib/types";
@@ -30,10 +30,18 @@ const testimonials: TestimonialType[] = [
     rating: 5,
     image: "/placeholder3.webp",
   },
+
 ];
 
 export const Testimonials = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === "left" ? -300 : 300;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="py-20 bg-gray-50 dark:text-white dark:bg-[#05132e]">
@@ -50,46 +58,68 @@ export const Testimonials = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 items-center justify-center content-center md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Card className="p-6 h-full hover:shadow-lg transition-shadow duration-300 dark:bg-[#032157] dark:text-white">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={48}
-                      height={48}
-                      className="object-cover"
-                    />
+        <div className="relative flex items-center gap-4">
+          {/* Scroll Buttons */}
+          <button
+            onClick={() => scroll("left")}
+            className="flex-shrink-0  p-2 dark:text-white hover:bg-gray-300 dark:hover:bg-[#05132e]"
+          >
+            &lt;&lt;
+          </button>
+
+          {/* Scrollable Container */}
+          <div
+            ref={scrollRef}
+            className="flex gap-8 overflow-x-auto scroll-smooth no-scrollbar px-4"
+          >
+            {testimonials.map((testimonial) => (
+              <motion.div
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex-shrink-0 w-[300px]"
+              >
+                <Card className="p-6 h-full hover:shadow-lg transition-shadow duration-300 dark:bg-[#032157] dark:text-white">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        width={48}
+                        height={48}
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">{testimonial.name}</h4>
+                      <p className="text-gray-600 dark:text-white">
+                        {`"${testimonial.role}"`}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold">{testimonial.name}</h4>
-                    <p className="text-gray-600 dark:text-white">
-                      {`"${testimonial.role}"`}
-                    </p>
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <span key={i} className="text-yellow-400">
+                        ★
+                      </span>
+                    ))}
                   </div>
-                </div>
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <p className="text-gray-600 dark:text-white">
-                  {`"${testimonial.comment}"`}
-                </p>
-              </Card>
-            </motion.div>
-          ))}
+                  <p className="text-gray-600 dark:text-white">
+                    {`"${testimonial.comment}"`}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <button
+            onClick={() => scroll("right")}
+            className="flex-shrink-0  p-2 dark:text-white hover:bg-gray-300 dark:hover:bg-[#05132e]"
+
+          >
+            &gt;&gt;
+          </button>
         </div>
       </div>
     </section>

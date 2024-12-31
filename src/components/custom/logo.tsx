@@ -1,14 +1,19 @@
 import Image from "next/image";
 import React from "react";
 
-const Logo = () => {
+interface LogoProps {
+  width: number;
+  height: number;
+}
+
+const Logo: React.FC<LogoProps> = ({ width, height }) => {
   return (
     <div>
       <Image
-        src={"/images/logo.png"}
+        src="/logo-cropped.png"
         alt="Zulu Tech"
-        width={125}
-        height={125}
+        width={width}
+        height={height}
       />
     </div>
   );

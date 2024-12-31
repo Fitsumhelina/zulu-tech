@@ -66,11 +66,11 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen pt-20 bg-gradient-to-br p-6">
       <div className="mx-auto max-w-7xl mt-10">
-        <div className="rounded-3xl p-8 overflow-hidden">
+        <div className="rounded-3xl sm:p-8 overflow-hidden">
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-white/10 transform -skew-y-6" />
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-white/5 transform -skew-y-6" />
 
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 relative">
+          <div className="bg-white dark:bg-gray-800 rounded-sm sm:rounded-lg shadow-xl p-8 relative">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="text-black">
                 {/* <div className="absolute max-sm:top-0 max-sm:sticky top-[50%] right-2 transform -translate-y-1/2  w-12 bg-blue-500 rounded-l-lg p-2 space-y-4">
@@ -182,7 +182,7 @@ export default function ContactPage() {
                     </li>
                     <li className="mb-4 flex items-center">
                       <MdEmail className="mr-2 text-b;ack dark:text-white" />
-                      Zuulu.tech@gmail.com
+                      zuulu.tech@gmail.com
                     </li>
                   </ul>
                 </div>

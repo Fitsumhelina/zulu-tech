@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: "Super Market e-commerce web app",
     description:
-      "Need a responsive, SEO-optimized, and fast-loading eCommerce website using ReactJS and tailwind ? Look no further! Perfect for grocery stores, makeup shops, clothing boutiques, real estate agencies, furniture stores, and bookshops",
+      "Need a responsive, SEO-optimized, and fast-loading eCommerce website using ReactJS and Tailwind? Look no further! Perfect for grocery stores, makeup shops, clothing boutiques, real estate agencies, furniture stores, and bookshops.",
     techStack: ["React", "Next.js", "TypeScript", "Node.js", "ExpressJS"],
     image: "/projects/ketex.png",
     liveUrl: "https://katemagirma-market.netlify.app/",
@@ -17,8 +17,8 @@ const projects = [
     id: 2,
     title: "AI-Powered CO2 Footprint Analysis",
     description:
-      "a web platform built with a Solidity backend for storing analysis results, a React.js frontend for user interaction, and Python for running the LLM model to perform data analysis.",
-    techStack: ["React", "Next.js", "Tailwind css ", "Blockchain", "Solidity"],
+      "A web platform built with a Solidity backend for storing analysis results, a React.js frontend for user interaction, and Python for running the LLM model to perform data analysis.",
+    techStack: ["React", "Next.js", "Tailwind CSS", "Blockchain", "Solidity"],
     image: "/projects/AI.jpg",
     liveUrl: "https://www.upwork.com/freelancers/~0192ef87525f9b27cf?p=1840031986426974208",
     category: "Webapp Development",
@@ -27,7 +27,7 @@ const projects = [
     id: 3,
     title: "Career Net Africa",
     description:
-      "a platform dedicated to offering mentorship and valuable guidance to young African students. It leverages the robust capabilities and flexibility of React.js and Express.js to create an interactive and dynamic environment for fostering mentor-student interactions, skill development, and career guidance tailored to the African context.",
+      "A platform dedicated to offering mentorship and valuable guidance to young African students. It leverages the robust capabilities and flexibility of React.js and Express.js to create an interactive and dynamic environment for fostering mentor-student interactions, skill development, and career guidance tailored to the African context.",
     techStack: ["NodeJS", "ReactJS", "Firebase", "MediaPipe"],
     image: "/projects/Career.jpg",
     liveUrl: "https://careernet-africa.netlify.app/",
@@ -37,8 +37,8 @@ const projects = [
     id: 4,
     title: "Autohub",
     description:
-      " a versatile platform tailored for buying, selling, and renting vehicles and vehicle accessories. Developed using React.js and Node.js/Express.js, it integrates a local payment system called Chapa, offering seamless transactions. Moreover, it incorporates a chat functionality and notification sending feature. The admin page provides in-depth analysis, including order details, customer insights based on geographical location percentages, and various other insightful metrics, making it a comprehensive solution for the automotive industry. ",
-    techStack: ["React", "Next.js", "Node.js", "ExpressJS", "socket.io","Tailwind CSS"],
+      "A versatile platform tailored for buying, selling, and renting vehicles and vehicle accessories. Developed using React.js and Node.js/Express.js, it integrates a local payment system called Chapa, offering seamless transactions. Moreover, it incorporates a chat functionality and notification sending feature. The admin page provides in-depth analysis, including order details, customer insights based on geographical location percentages, and various other insightful metrics, making it a comprehensive solution for the automotive industry.",
+    techStack: ["React", "Next.js", "Node.js", "ExpressJS", "socket.io", "Tailwind CSS"],
     image: "/projects/autohub.jpg",
     liveUrl: "https://www.upwork.com/freelancers/~0192ef87525f9b27cf?p=1735585418849554432",
     category: "Webapp Development",
@@ -47,7 +47,7 @@ const projects = [
     id: 5,
     title: "HakimHub",
     description:
-      "Africa's pioneering medical information recommendation system, setting a new standard in healthcare technology. Utilized advanced LLM technology to personalize symptom assessments and follow-up questions. Provided precise recommendations for specialized doctors and hospitals nearby. The platform, accessible via both web and mobile applications, will prompt users to input their symptoms and preferences.",
+      "Africa's pioneering medical information recommendation system, setting a new standard in healthcare technology. Utilized advanced LLM technology to personalize symptom assessments and follow-up questions. Provided precise recommendations for specialized doctors and hospitals nearby. The platform, accessible via both web and mobile applications, prompts users to input their symptoms and preferences.",
     techStack: ["LLM Prompt Engineering", "Flutter", "Chatbot"],
     image: "/projects/hakim.jpg",
     liveUrl: "https://www.upwork.com/freelancers/~0192ef87525f9b27cf?p=1771552917874495488",
@@ -55,7 +55,7 @@ const projects = [
   },
   {
     id: 6,
-    title: "House Rental app",
+    title: "House Rental App",
     description:
       "A comprehensive house rental application designed to streamline the process of finding and listing rental properties.",
     techStack: ["React", "Node.js", "CSS", "ExpressJS"],
@@ -63,7 +63,8 @@ const projects = [
     liveUrl: "https://www.upwork.com/freelancers/~0192ef87525f9b27cf?p=1735672950379515904",
     category: "Webapp Development",
   },
-]
+];
+
 const page = () => {
   return (
     <div className="">

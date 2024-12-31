@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "Zulu Tech",
   description: "Zulu Tech Ethiopia",
   icons:{
-    icon:"/logo.jpg",
+    icon:"/logo1.png",
   }
 };
 
@@ -45,7 +45,15 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="z-[70] fixed flex justify-between px-10 items-center   bg-inherit w-full h-24">
-            <Logo />
+           <div>
+            <div className="flex"></div>
+           <div className="hidden sm:flex -mb-2">
+           <Logo width={125} height={125} />
+
+           </div>
+           </div>
+           
+       
             <FloatingNav navItems={navItems} />
 
             <ThemeToggle />

@@ -52,8 +52,11 @@ export const BlogsPage = () => {
   const router = useRouter;
   return (
     <section className={`${bgColor} min-h-screen dark:bg-[#05132e]`}>
-      {/* Hero Section */}
-      <div className="relative w-full h-[400px] flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600">
+   {/* Hero Section */}
+   <div
+        className="relative w-full h-[500px] ] 
+             bg-cover bg-center z-0 flex items-center justify-center bg-blue-500"
+      >
         <div
           className="absolute inset-0"
           style={{ clipPath: "polygon(0 0, 100% 0, 100% 90%, 0 80%)" }}
@@ -65,7 +68,8 @@ export const BlogsPage = () => {
             transition={{ duration: 0.6 }}
             className="text-5xl font-extrabold text-white mb-4"
           >
-            Zulu Tech Blogs
+                Zulu Tech Blogs
+
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -73,46 +77,51 @@ export const BlogsPage = () => {
             transition={{ duration: 0.8 }}
             className="text-lg text-gray-200"
           >
-            Insights, Innovations, and Stories from Zulu Tech
+          Insights, Innovations, and Stories from Zulu Tech
+
           </motion.p>
         </div>
       </div>
+
+      {/* 
+      */}
 
       <div className="py-16 px-6 md:px-12 max-w-7xl mx-auto ">
         {/* Blog List */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
-            <Link href={blog.link} key={blog.id}>
-              <motion.div
-                key={blog.id}
-                className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="relative h-48">
-                  <Image
-                    src={blog.image}
-                    alt={blog.title}
-                    className="h-52 w-full object-cover"
-                    width={400}
-                    height={400}
-                  />
+            <motion.a
+              href={blog.link} key={blog.id}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow overflow-hidden flex flex-col h-full"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="relative h-48">
+                <Image
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full h-full object-cover"
+                  width={400}
+                  height={400}
+                />
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">
+                  {blog.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
+                  {blog.description}
+                </p>
+                <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+                  <span>{blog.date}</span>
+                  <span>By {blog.author}</span>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">
-                    {blog.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    {blog.description}
-                  </p>
-                  <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
-                    <span>{blog.date}</span>
-                    <span>By {blog.author}</span>
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
+              </div>
+            </motion.a>
           ))}
         </div>
+
       </div>
     </section>
   );

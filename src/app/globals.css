@@ -76,3 +76,31 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+
+@keyframes l5 {
+  0% {
+    box-shadow: 20px 0 #fff, -20px 0 #ffffff4d;
+    background: #fff;
+  }
+  33% {
+    box-shadow: 20px 0 #fff, -20px 0 #ffffff4d;
+    background: #ffffff4d;
+  }
+  66% {
+    box-shadow: 20px 0 #ffffff4d, -20px 0 #fff;
+    background: #ffffff4d;
+  }
+  100% {
+    box-shadow: 20px 0 #ffffff4d, -20px 0 #fff;
+    background: #fff;
+  }
+}

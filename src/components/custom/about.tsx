@@ -33,18 +33,17 @@ const teamMembers = [
 export const AboutUs = () => {
   const { theme } = useTheme();
   const bgColor =
-    theme === "dark" ? "bg-gray-900 text-gray-100" : "bg-white text-gray-800";
+    theme === "dark" ? "bg-gray-[#05132e] text-gray-100" : "bg-white text-gray-800";
 
   return (
-    <section className={`${bgColor}  min-h-screen`}>
+    <section className={`${bgColor} min-h-screen`}>
       {/* Hero Section */}
       <div
-        className="relative w-full h-[500px] bg-[url(
-'/images/project_2.png')]
-             bg-cover bg-center z-0 flex items-center justify-center bg-blue-500 "
+        className="relative w-full h-[500px] ] 
+             bg-cover bg-center z-0 flex items-center justify-center bg-blue-500"
       >
         <div
-          className="absolute inset-0 "
+          className="absolute inset-0"
           style={{ clipPath: "polygon(0 0, 100% 0, 100% 90%, 0 80%)" }}
         ></div>
         <div className="relative z-10 text-center">
@@ -54,7 +53,7 @@ export const AboutUs = () => {
             transition={{ duration: 0.6 }}
             className="text-5xl font-extrabold text-white mb-4"
           >
-            Welcome to Zulu Tech
+            About Us
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +61,7 @@ export const AboutUs = () => {
             transition={{ duration: 0.8 }}
             className="text-lg text-gray-200"
           >
-            Empowering Innovation and Driving Success
+            Empowering Innovation through unparalleled software development expertise
           </motion.p>
         </div>
       </div>
@@ -80,8 +79,6 @@ export const AboutUs = () => {
           </p>
         </section>
 
- 
-
         {/* Meet the Team */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6 text-blue-800">
@@ -91,20 +88,37 @@ export const AboutUs = () => {
         </section>
 
         {/* Vision and Mission */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6 text-blue-800 dark:text-white">
-            Our Vision & Mission
+        <section className="text-blue-800 dark:text-white">
+          <h2 className="text-3xl font-bold mb-6 text-blue-800 ">
+            Our Vision
           </h2>
-          <p className="text-lg leading-7 text-gray-600 mb-4 dark:text-white">
-            Our vision is to become a global leader in providing technology
-            solutions that drive transformation and success for businesses of
-            all sizes.
-          </p>
-          <p className="text-lg leading-7 text-gray-600 dark:text-white">
-            Our mission is to deliver exceptional value to our clients through
-            innovative solutions, dedicated support, and an unwavering
-            commitment to quality.
-          </p>
+          <div className="text-lg leading-7 text-gray-600 dark:text-white space-y-2">
+            To be the leading provider of innovative software solutions, exceeding client expectations through exceptional African talent, while fostering sustainable growth and contributing positively to society and the environment.
+          </div>
+
+          <h2 className="text-3xl font-bold mt-12 mb-6 text-blue-800 ">
+            Our Goals
+          </h2>
+          <div className="text-md leading-7 text-gray-600 dark:text-white space-y-5">
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+              Deliver cutting-edge technology solutions by consistently providing innovative software solutions that surpass client expectations.
+              </li>
+              <li>
+              Foster continuous learning and development by cultivating a culture that encourages ongoing education and professional growth within our teams.
+              </li>
+              <li>
+              Build long-term partnerships by establishing and maintaining relationships with clients based on trust, transparency, and shared success.
+              </li>
+              <li>
+              Ensure timely project delivery by adhering to project timelines and ensuring punctual delivery without compromising quality.
+              </li>
+              <li>
+              Utilize cutting-edge technologies by staying abreast of industry advancements and incorporating the latest technologies into our solutions.
+              </li>
+            </ul>
+          </div>
+
         </section>
       </div>
     </section>

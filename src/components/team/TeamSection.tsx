@@ -6,7 +6,7 @@ const teams = [
     id: 1,
     name: 'Ketema Girma',
     title: 'CEO and Founder',
-    image: '/images/ketema.jpg',
+    image: '/images/ketema1.JPG',
     bio: 'Ketema Girma is the visionary CEO and Founder of our company. With over 5 years of experience in the tech industry, Ketema has led numerous successful projects. His passion for innovation and user-centric design has been the driving force behind our company\'s growth and success.',
     linkedIn: 'https://www.linkedin.com/in/ketema-girma-608729228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
   },
