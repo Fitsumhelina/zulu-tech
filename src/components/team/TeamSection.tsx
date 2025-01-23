@@ -13,7 +13,7 @@ const teams = [
   {
     id: 2,
     name: 'Tesfaye Adugna',
-    title: 'CTO',
+    title: 'CTO and Co-Founder',
     image: '/images/tesfish.jpg',
     bio: 'Tesfaye Adugna serves as our Chief Technology Officer, bringing with him a wealth of knowledge in software Engineering and emerging technologies. His expertise in problem solving has been instrumental in developing our cutting-edge products and services, and also helped him to be part of Google team currently.',
     linkedIn: 'https://www.linkedin.com/in/tesfaye-adugna?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
