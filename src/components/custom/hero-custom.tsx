@@ -3,7 +3,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import AnimatedLogoCloud from "./animated-icons";
-import Link from "next/link";
 // import heroImage from "@/public/images/hero-illustration.png";
 
 const HeroCustom = () => {
@@ -23,12 +22,12 @@ const HeroCustom = () => {
             Achieving your project goals with precision and timely delivery.
           </p>
           <div className="mt-8 flex  max-sm:flex-col gap-2 max-sm:justify-center items-stretch">
-            <Link target="blank" href="https://www.upwork.com/agencies/zulu/" className="px-6 py-3 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-500 transition">
+            <button className="px-6 py-3 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-500 transition">
               Bring Your Idea to Life
-            </Link>
-            <Link target="blank" href="https://www.upwork.com/agencies/zulu/" className="px-6 py-3 bg-gray-100 text-gray-800 rounded-md shadow-lg hover:bg-gray-200 transition">
+            </button>
+            <button className="px-6 py-3 bg-gray-100 text-gray-800 rounded-md shadow-lg hover:bg-gray-200 transition">
               Request a Consultation
-            </Link>
+            </button>
           </div>
         </div>
         <motion.div className="lg:w-1/2 flex justify-center relative">
