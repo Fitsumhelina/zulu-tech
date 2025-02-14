@@ -31,14 +31,14 @@ export default function Component() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 5000)
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [images.length])
 
 
   return (
-    <div className="relative h-350 bg-[#05132e] dark:bg-white text-white overflow-hidden w-6xl">
+    <div className="relative h-200 bg-[#05132e] dark:bg-white text-white overflow-hidden rounded-xl w-70 m-8">
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto px-4 pt-16 pb-24 relative z-10">
@@ -55,11 +55,11 @@ export default function Component() {
             <Input
               type="text"
               placeholder="Search..."
-              className="w-72 p-2 rounded-full text-black dark:text-white bg-white border-none shadow-md focus:ring-2 focus:ring-blue-400 transition-all"
+              className="w-72 p-5 rounded-full text-black dark:text-white bg-white dark:bg-[#707071] border-none shadow-md focus:ring-2 focus:ring-blue-400 transition-all"
             />
             <Button
               type="submit"
-              className="absolute top-0 right-0 bg-[#2D2B2A] text-white dark:text-white dark:bg-[#05132e]  px-2 py-2 rounded-full shadow-md transition-transform duration-300 hover:scale-105 "
+              className="absolute top-0 right-0 bg-[#2D2B2A] text-white dark:text-black dark:bg-white rounded-full shadow-md transition-transform duration-300 hover:scale-105 m-0.5"
             >
               Explore
             </Button>
