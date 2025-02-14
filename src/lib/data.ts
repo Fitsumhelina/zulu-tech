@@ -3,95 +3,74 @@ import { FaHome, FaInfoCircle, FaEnvelope, FaUser } from "react-icons/fa";
 
 export const products = [
   {
-    title: "1",
-    link: "https://gomoonbeam.com",
+    title: "product 1",
+    description: "A powerful tool for mastering Tailwind CSS with pre-built components and templates.",
+    rating: 5,
+    reviews: 50,
+    currentPrice: 150,
+    originalPrice: 200,
+    techStack: ["Tailwind CSS", "HTML", "CSS"],
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+      "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
   },
   {
-    title: "2",
-    link: "https://cursor.so",
+    title: "product 2",
+    description: "An innovative platform for bridging the gap between technology and business solutions.",
+    rating: 4,
+    reviews: 40,
+    currentPrice: 500,
+    originalPrice: 600,
+    techStack: ["React", "Node.js", "Express"],
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+      "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
   },
   {
-    title: "3",
-    link: "https://userogue.com",
+    title: "product 3",
+    description: "A creative studio offering high-quality rendering and design services.",
+    rating: 5,
+    reviews: 25,
+    currentPrice: 700,
+    originalPrice: 800,
+    techStack: ["Blender", "3ds Max", "Photoshop"],
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+      "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
   },
   {
-    title: "4",
-    link: "https://editorially.org",
+    title: "product 4",
+    description: "A digital marketing agency specializing in SEO, content creation, and social media management.",
+    rating: 4,
+    reviews: 35,
+    currentPrice: 400,
+    originalPrice: 500,
+    techStack: ["WordPress", "SEO Tools", "Google Analytics"],
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+      "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
   },
   {
-    title: "5",
-    link: "https://editrix.ai",
+    title: "product 5",
+    description: "An online academy offering a wide range of courses for skill development.",
+    rating: 5,
+    reviews: 60,
+    currentPrice: 100,
+    originalPrice: 150,
+    techStack: ["Moodle", "PHP", "MySQL"],
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editrix.png",
+      "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
   },
   {
-    title: "6",
-    link: "https://app.pixelperfect.quest",
+    title: "product 6",
+    description: "A gaming platform providing a variety of online games and tournaments.",
+    rating: 4,
+    reviews: 45,
+    currentPrice: 200,
+    originalPrice: 250,
+    techStack: ["Unity", "C#", "Photon"],
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+      "https://aceternity.com/images/products/thumbnails/new/invoker.png",
   },
-  {
-    title: "7",
-    link: "https://algochurn.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
-  },
-  {
-    title: "8",
-    link: "https://ui.aceternity.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
-  },
-  // {
-  //   title: "9",
-  //   link: "https://tailwindmasterkit.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
-  // },
-  // {
-  //   title: "10",
-  //   link: "https://smartbridgetech.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
-  // },
-  // {
-  //   title: "11",
-  //   link: "https://renderwork.studio",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
-  // },
-  // {
-  //   title: "12",
-  //   link: "https://cremedigital.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
-  // },
-  // {
-  //   title: "13",
-  //   link: "https://goldenbellsacademy.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
-  // },
-  // {
-  //   title: "14",
-  //   link: "https://invoker.lol",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/invoker.png",
-  // },
-  // {
-  //   title: "15",
-  //   link: "https://efreeinvoice.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
-  // },
+
+  //more products can be added here
+ 
 ];
 
 export const testimonials = [
