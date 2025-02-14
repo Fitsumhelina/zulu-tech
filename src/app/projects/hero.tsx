@@ -38,7 +38,7 @@ export default function Component() {
 
 
   return (
-    <div className="relative h-200 bg-[#05132e] dark:bg-white text-white overflow-hidden rounded-xl w-70 m-8">
+    <div className="relative h-200 bg-[#05132e] dark:bg-white text-white overflow-hidden rounded-xl w-70 mt-2 mr-8 mb-8 ml-8">
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto px-4 pt-16 pb-24 relative z-10">

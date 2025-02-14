@@ -69,7 +69,7 @@ const projects = [
 const page = () => {
   return (
     <div className="">
-      <div className="h-20 md:h-10"></div>
+    <div className="h-20 md:h-10"></div>
    <Navigation/>
    <Hero/>
    <h3 className="text-3xl ml-10 font-bold ">Popular Projects </h3>
