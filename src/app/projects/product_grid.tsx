@@ -1,3 +1,4 @@
+import { products } from "@/lib/data"
 import { ProductCard } from "./product_card"
 
 export default function ProductGrid() {
@@ -9,11 +10,11 @@ export default function ProductGrid() {
           .map((_, i) => (
             <ProductCard
               key={i}
-              imageUrl={`/projects/ketex.png`}
-              title={`Product ${i}`}
-              description={`Description for product ${i}`}
-              rating={4.5}
-              price={99.99}
+              imageUrl={products[i % products.length].imageUrl}
+              title={products[i % products.length].title}
+              description={products[i % products.length].description}
+              rating={products[i % products.length].rating}
+              price={products[i % products.length].price}
               onAddToCart={() => console.log(`Added product ${i} to cart`)}
             />
           ))}

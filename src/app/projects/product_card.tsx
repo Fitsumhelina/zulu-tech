@@ -13,7 +13,46 @@ interface ProductCardProps {
   reviews: number
   currentPrice: number
   originalPrice: number
+  techStack: string[]
 }
+
+interface Product {
+  id: number
+  imageUrl: string
+  title: string
+  description: string
+  rating: number
+  reviews: number
+  currentPrice: number
+  originalPrice: number
+  techStack: string[]
+}
+
+const products: Product[] = [
+  {
+    id: 1,
+    imageUrl: "/projects/ketex.png",
+    title: "AI-Powered CO2 Footprint Analysis",
+    description: "Need a responsive, SEO-optimized, and fast-loading eCommerce website using ReactJS and Tailwind? Look no further! Perfect for grocery stores, makeup shops.",
+    rating: 4,
+    reviews: 30,
+    currentPrice: 300,
+    originalPrice: 400,
+    techStack: ["React", "NextJS", "Tailwind CSS"],
+  },
+  {
+    id: 2,
+    imageUrl: "/projects/another.png",
+    title: "E-Commerce Platform",
+    description: "A robust e-commerce platform built with Next.js and Tailwind CSS.",
+    rating: 5,
+    reviews: 50,
+    currentPrice: 500,
+    originalPrice: 600,
+    techStack: ["NextJS", "Tailwind CSS", "Node.js"],
+  },
+  // Add more products as needed
+]
 
 export function ProductCard({
   imageUrl = "/projects/ketex.png",
@@ -23,6 +62,7 @@ export function ProductCard({
   reviews = 30,
   currentPrice = 300,
   originalPrice = 400,
+  techStack = ["React", "NextJS", "Tailwind CSS"],
 }: ProductCardProps) {
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
@@ -54,49 +94,15 @@ export function ProductCard({
           <Button>Buy Now</Button>
         </div>
         <div className="flex items-center gap-2 mb-3">
-          <Badge variant="outline">React</Badge>
-          <Badge variant="outline">NextJS</Badge>
-          <Badge variant="outline">Tailwind CSS</Badge>
+          {techStack.map((tech, index) => (
+            <Badge key={index} variant="outline">{tech}</Badge>
+          ))}
         </div>
       </div>
     </div>
   )
 }
 
-interface Product {
-  id: number
-  imageUrl: string
-  title: string
-  description: string
-  rating: number
-  reviews: number
-  currentPrice: number
-  originalPrice: number
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    imageUrl: "/projects/ketex.png",
-    title: "AI-Powered CO2 Footprint Analysis",
-    description: "Need a responsive, SEO-optimized, and fast-loading eCommerce website using ReactJS and Tailwind? Look no further! Perfect for grocery stores, makeup shops.",
-    rating: 4,
-    reviews: 30,
-    currentPrice: 300,
-    originalPrice: 400,
-  },
-  {
-    id: 2,
-    imageUrl: "/projects/another.png",
-    title: "E-Commerce Platform",
-    description: "A robust e-commerce platform built with Next.js and Tailwind CSS.",
-    rating: 5,
-    reviews: 50,
-    currentPrice: 500,
-    originalPrice: 600,
-  },
-  // Add more products as needed
-]
 
 export function ProductList() {
   return (
@@ -111,6 +117,7 @@ export function ProductList() {
           reviews={product.reviews}
           currentPrice={product.currentPrice}
           originalPrice={product.originalPrice}
+          techStack={product.techStack}
         />
       ))}
     </div>
