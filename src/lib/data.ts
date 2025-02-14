@@ -79,48 +79,7 @@ export const products = [
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
   }
-  // {
-  //   title: "9",
-  //   link: "https://tailwindmasterkit.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
-  // },
-  // {
-  //   title: "10",
-  //   link: "https://smartbridgetech.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
-  // },
-  // {
-  //   title: "11",
-  //   link: "https://renderwork.studio",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
-  // },
-  // {
-  //   title: "12",
-  //   link: "https://cremedigital.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
-  // },
-  // {
-  //   title: "13",
-  //   link: "https://goldenbellsacademy.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
-  // },
-  // {
-  //   title: "14",
-  //   link: "https://invoker.lol",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/invoker.png",
-  // },
-  // {
-  //   title: "15",
-  //   link: "https://efreeinvoice.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
-  // },
+ 
 ];
 
 export const testimonials = [
