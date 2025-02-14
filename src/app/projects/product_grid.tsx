@@ -7,7 +7,7 @@ export default function ProductGrid() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product, i) => (
           <ProductCard
-            key={product.id}
+            key={i}
             imageUrl={product.thumbnail}
             title={product.title}
             description={product.description ?? ""}
