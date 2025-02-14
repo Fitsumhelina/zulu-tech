@@ -42,6 +42,24 @@ const projects = [
       "https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list.svg",
     tag: "React Development",
   },
+  {
+    title: "Hakimhub",
+    image:
+      "https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list.svg",
+    tag: "React Development",
+  },
+  {
+    title: "Hakimhub",
+    image:
+      "https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list.svg",
+    tag: "React Development",
+  },
+  {
+    title: "Hakimhub",
+    image:
+      "https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list.svg",
+    tag: "React Development",
+  },
 ];
 
 export default function ProjectsCarousel() {
@@ -55,29 +73,29 @@ export default function ProjectsCarousel() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-8">
+    <div className="relative max-w-8xl mx-auto px-4 py-4  bg-white-500 overflow-hidden mt-10 mr-6 ml-6">
       <h3 className="text-3xl ml-10 font-bold mb-3">Popular Projects</h3>
       <div className="relative">
         <Button
           size="icon"
           onClick={() => scroll("left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 text-black hover:text-white bg-[#B9B8B8]"
+          className="absolute left-1 top-1/2 -translate-y-1/2 z-10 text-black hover:text-white bg-[#B9B8B8]"
         >
           <ChevronLeft className="h-4 w-4" />
         </Button>
         <div
           ref={scrollRef}
           id="nav-container"
-          className="flex gap-4 overflow-x-auto scroll-smooth px-8"
+          className="flex gap-6 px-8 overflow-x-auto scrollbar-hide justify-center"
         >
           {projects.map((project, index) => (
-            <div key={index} className="w-[300px] flex-shrink-0">
-              <div className="border rounded-lg overflow-hidden">
-                <div className="relative aspect-[16/9]">
+            <div key={index} className="max-w-[250px] flex-shrink-0 ">
+              <div className="border rounded-lg overflow-hidden ">
+                <div className="relative aspect-[16/9] whitespace-nowrap text-sm text-black dark:text-white px-4 py-2 m-4 ">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full "
                   />
                   <div className="absolute top-2 right-2">
                     <span className="bg-white/90 text-xs px-2 py-1 rounded-full">
@@ -95,7 +113,7 @@ export default function ProjectsCarousel() {
         <Button
           size="icon"
           onClick={() => scroll("right")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 text-black hover:text-white bg-[#B9B8B8]"
+          className="absolute right-1 top-1/2 -translate-y-1/2 z-10 text-black hover:text-white bg-[#B9B8B8]"
         >
           <ChevronRight className="h-4 w-4" />
         </Button>

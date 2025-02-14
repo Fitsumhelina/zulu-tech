@@ -50,7 +50,7 @@ function Category() {
       {navItems.map((item, index) => (
         <div 
         key={index} 
-        className="whitespace-nowrap text-sm text-black dark:text-white px-4 py-2 m-4 hover:cursor-pointer hover hover:underline"
+        className="whitespace-nowrap text-sm text-black dark:text-white px-4 py-2 m-4 hover:cursor-pointer  hover:underline"
         onClick={() => handleClick(item.link)}
         >
         {item.name}
