@@ -28,32 +28,6 @@ interface Product {
   techStack: string[]
 }
 
-const products: Product[] = [
-  {
-    id: 1,
-    imageUrl: "/projects/ketex.png",
-    title: "AI-Powered CO2 Footprint Analysis",
-    description: "Need a responsive, SEO-optimized, and fast-loading eCommerce website using ReactJS and Tailwind? Look no further! Perfect for grocery stores, makeup shops.",
-    rating: 4,
-    reviews: 30,
-    currentPrice: 300,
-    originalPrice: 400,
-    techStack: ["React", "NextJS", "Tailwind CSS"],
-  },
-  {
-    id: 2,
-    imageUrl: "/projects/another.png",
-    title: "E-Commerce Platform",
-    description: "A robust e-commerce platform built with Next.js and Tailwind CSS.",
-    rating: 5,
-    reviews: 50,
-    currentPrice: 500,
-    originalPrice: 600,
-    techStack: ["NextJS", "Tailwind CSS", "Node.js"],
-  },
-  // Add more products as needed
-]
-
 export function ProductCard({
   imageUrl = "/projects/ketex.png",
   title = "AI-Powered CO2 Footprint Analysis",
@@ -99,27 +73,6 @@ export function ProductCard({
           ))}
         </div>
       </div>
-    </div>
-  )
-}
-
-
-export function ProductList() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          imageUrl={product.imageUrl}
-          title={product.title}
-          description={product.description}
-          rating={product.rating}
-          reviews={product.reviews}
-          currentPrice={product.currentPrice}
-          originalPrice={product.originalPrice}
-          techStack={product.techStack}
-        />
-      ))}
     </div>
   )
 }
