@@ -68,17 +68,8 @@ export const products = [
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/invoker.png",
   },
-  {
-    title: "product 7",
-    description: "A free invoicing tool for freelancers and small businesses.",
-    rating: 5,
-    reviews: 55,
-    currentPrice: 50,
-    originalPrice: 100,
-    techStack: ["React", "Node.js", "MongoDB"],
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
-  }
+
+  //more products can be added here
  
 ];
 
