@@ -32,27 +32,29 @@ export default function ProjectsCarousel() {
           id="nav-container"
           className="flex gap-6 px-8 overflow-x-auto scrollbar-hide justify-center"
         >
-          {products.map((product, index) => (
-            <div key={index} className="max-w-[250px] flex-shrink-0">
-              <div className="border rounded-lg overflow-hidden">
-                <div className="relative aspect-[16/9] whitespace-nowrap text-sm text-black dark:text-white px-4 py-2 m-4">
-                  <img
-                    src={product.thumbnail}
-                    alt={product.title}
-                    className="object-cover w-full h-full"
-                  />
-                  <div className="absolute top-2 right-2">
-                    <span className="bg-white/90 text-xs px-2 py-1 rounded-full">
-                      {product.tag}
-                    </span>
+          {products
+            .filter((product) => product.rating > 4)
+            .map((product, index) => (
+              <div key={index} className="max-w-[250px] flex-shrink-0">
+                <div className="border rounded-lg overflow-hidden">
+                  <div className="relative aspect-[16/9] whitespace-nowrap text-sm text-black dark:text-white px-4 py-2 m-4">
+                    <img
+                      src={product.thumbnail}
+                      alt={product.title}
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute top-2 right-2">
+                      <span className="bg-white/90 text-xs px-2 py-1 rounded-full">
+                        {product.tag}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-medium">{product.title}</h3>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-medium">{product.title}</h3>
-                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
         <Button
           size="icon"

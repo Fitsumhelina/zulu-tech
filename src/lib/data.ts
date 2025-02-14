@@ -6,7 +6,7 @@ export const products = [
     title: "product 1",
     description: "A powerful tool for mastering Tailwind CSS with pre-built components and templates.",
     rating: 5,
-    reviews: 50,
+    reviews: 55,
     currentPrice: 150,
     originalPrice: 200,
     techStack: ["Tailwind CSS", "HTML", "CSS"],
