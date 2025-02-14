@@ -38,25 +38,33 @@ export default function Component() {
 
 
   return (
-    <div className="relative h-350 bg-[#05132e] text-white overflow-hidden w-6xl">
+    <div className="relative h-350 bg-[#05132e] dark:bg-white text-white overflow-hidden w-6xl">
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto px-4 pt-16 pb-24 relative z-10">
         <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl dark:text-black md:text-5xl font-bold leading-tight mb-6">
             Discover, Compare, and Launch Your Next Big Idea!
           </h1>
-          <p className="text-gray-400 mb-8 text-lg">
+          <p className="text-gray-400 mb-8 text-lg dark:text-black">
             Explore a curated selection of web apps, mobile apps, and software projects tailored to meet your needs.
             Whether you're looking for inspiration or ready-to-go solutions, we've got you covered.
           </p>
-          <div className="flex gap-2 max-w-xl">
+          {/* Searchspace */}
+          <div className="relative inline-block">
             <Input
-              placeholder="Search here ..."
-              className="bg-white/10 border-0 focus-visible:ring-1 focus-visible:ring-white/20"
+              type="text"
+              placeholder="Search..."
+              className="w-72 p-2 rounded-full text-black dark:text-white bg-white border-none shadow-md focus:ring-2 focus:ring-blue-400 transition-all"
             />
-            <Button className="bg-white text-[#0a0f1c] hover:bg-white/90">Explore</Button>
+            <Button
+              type="submit"
+              className="absolute top-0 right-0 bg-[#2D2B2A] text-white dark:text-white dark:bg-[#05132e]  px-2 py-2 rounded-full shadow-md transition-transform duration-300 hover:scale-105 "
+            >
+              Explore
+            </Button>
           </div>
+
         </div>
       </div>
 
