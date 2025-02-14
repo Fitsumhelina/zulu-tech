@@ -1,4 +1,4 @@
-import ProductCard from "./product_card"
+import { ProductCard } from "./product_card"
 
 export default function ProductGrid() {
   return (
@@ -7,7 +7,15 @@ export default function ProductGrid() {
         {Array(6)
           .fill(null)
           .map((_, i) => (
-            <ProductCard key={i} />
+            <ProductCard
+              key={i}
+              imageUrl={`/projects/ketex.png`}
+              title={`Product ${i}`}
+              description={`Description for product ${i}`}
+              rating={4.5}
+              price={99.99}
+              onAddToCart={() => console.log(`Added product ${i} to cart`)}
+            />
           ))}
       </div>
     </div>

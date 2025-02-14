@@ -4,6 +4,7 @@ import { ProjectCard } from "./card";
 import Hero from "./hero";
 import Catagory from "./Catagory";
 import ProjectsCarousel from "./projects-carousel";
+import ProductGrid from "./product_grid";
 const projects = [
   {
     id: 1,
@@ -74,11 +75,12 @@ const page = () => {
     <Catagory/>
    <Hero/>
    <ProjectsCarousel/>
-   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-10 md:mx-10 my-10">
+   {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-10 md:mx-10 my-10">
             {projects.map(project => (
               <ProjectCard key={project.id} {...project} />
             ))}
-          </div>
+          </div> */}
+          <ProductGrid/>
     </div>
   );
 };
