@@ -12,8 +12,8 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, techStack, image, liveUrl, category }: ProjectCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-      <Image src={image} alt={title} width={400} height={200} className="w-full h-48 object-cover" />
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl mr-8 ml-8">
+      <Image src={image} alt={title} width={200} height={350} className="w-100 h-78 object-cover" />
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">{title}</h3>
         <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{description}</p>

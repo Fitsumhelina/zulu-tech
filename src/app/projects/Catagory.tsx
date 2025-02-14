@@ -37,7 +37,7 @@ function Category() {
   return (
   <>
     {/* Navigation */}
-    <div className="relative max-w-8xl mx-auto px-4 py-4  bg-white-500 overflow-hidden mt-10 mr-6 ml-6">
+    <div className="relative max-w-8xl mx-auto px-4 py-4  bg-white-500 overflow-hidden mt-10 mr-8 ml-8">
     <div className="flex items-center relative">
       <Button
       size="icon"
