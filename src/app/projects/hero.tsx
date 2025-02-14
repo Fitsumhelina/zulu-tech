@@ -1,6 +1,6 @@
 "use client"
 
-import { useState ,useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -25,20 +25,19 @@ export default function Component() {
       setScrollPosition(newPosition)
     }
   }
- 
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 3000)
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [images.length])
 
-
   return (
-    <div className="relative h-200 bg-[#05132e] dark:bg-white text-white overflow-hidden rounded-xl w-70 mt-2 mr-8 mb-8 ml-8">
+    <div className="relative h-200 bg-[#05132e] dark:bg-white text-white overflow-hidden rounded-xl  md:w-70 m-8">
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto px-4 pt-16 pb-24 relative z-10">
@@ -55,7 +54,7 @@ export default function Component() {
             <Input
               type="text"
               placeholder="Search..."
-              className="w-72 p-5 rounded-full text-black dark:text-white bg-white dark:bg-[#707071] border-none shadow-md focus:ring-2 focus:ring-blue-400 transition-all"
+              className="w-72 p- rounded-full text-black dark:text-white bg-white dark:bg-[#707071] border-none shadow-md focus:ring-2 focus:ring-blue-400 transition-all"
             />
             <Button
               type="submit"
@@ -69,7 +68,7 @@ export default function Component() {
       </div>
 
       {/* Floating Images */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] ">
+      <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[600px]">
         <div className="relative w-full h-full">
           <img
             src={images[currentImageIndex]}
@@ -78,8 +77,7 @@ export default function Component() {
           />
         </div>
       </div>
-    
+
     </div>
   )
 }
-
