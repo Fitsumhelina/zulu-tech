@@ -73,7 +73,6 @@ const page = () => {
     <div className="h-20 md:h-10"></div>
     <Catagory/>
    <Hero/>
-   <h3 className="text-3xl ml-10 font-bold ">Popular Projects </h3>
    <ProjectsCarousel/>
    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-10 md:mx-10 my-10">
             {projects.map(project => (

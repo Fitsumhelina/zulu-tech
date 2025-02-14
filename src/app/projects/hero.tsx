@@ -54,7 +54,7 @@ export default function Component() {
             <Input
               type="text"
               placeholder="Search..."
-              className="w-72 p- rounded-full text-black dark:text-white bg-white dark:bg-[#707071] border-none shadow-md focus:ring-2 focus:ring-blue-400 transition-all"
+              className="w-72 p-5 rounded-full text-black dark:text-white bg-white dark:bg-[#707071] border-none shadow-md focus:ring-2 focus:ring-blue-400 transition-all"
             />
             <Button
               type="submit"
