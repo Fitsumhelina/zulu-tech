@@ -6,10 +6,11 @@ export const products = [
     title: "product 1",
     description: "A powerful tool for mastering Tailwind CSS with pre-built components and templates.",
     rating: 5,
-    reviews: 50,
+    reviews: 55,
     currentPrice: 150,
     originalPrice: 200,
     techStack: ["Tailwind CSS", "HTML", "CSS"],
+    type: "Web Development",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
   },
@@ -21,6 +22,7 @@ export const products = [
     currentPrice: 500,
     originalPrice: 600,
     techStack: ["React", "Node.js", "Express"],
+    type: "Web Development",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
   },
@@ -32,6 +34,7 @@ export const products = [
     currentPrice: 700,
     originalPrice: 800,
     techStack: ["Blender", "3ds Max", "Photoshop"],
+    type: "3D Design",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
   },
@@ -43,6 +46,7 @@ export const products = [
     currentPrice: 400,
     originalPrice: 500,
     techStack: ["WordPress", "SEO Tools", "Google Analytics"],
+    type: "Digital Marketing",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
   },
@@ -54,6 +58,7 @@ export const products = [
     currentPrice: 100,
     originalPrice: 150,
     techStack: ["Moodle", "PHP", "MySQL"],
+    type: "E-Learning",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
   },
@@ -65,6 +70,7 @@ export const products = [
     currentPrice: 200,
     originalPrice: 250,
     techStack: ["Unity", "C#", "Photon"],
+    type: "Game Development",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/invoker.png",
   },
@@ -72,6 +78,7 @@ export const products = [
   //more products can be added here
  
 ];
+
 
 export const testimonials = [
   {

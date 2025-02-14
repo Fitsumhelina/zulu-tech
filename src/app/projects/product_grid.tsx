@@ -16,6 +16,7 @@ export default function ProductGrid() {
             currentPrice={product.currentPrice ?? 0}
             originalPrice={product.originalPrice ?? 0}
             techStack={Array.isArray(product.techStack) ? product.techStack : [product.techStack ?? ""]}
+            type={product.type ?? ""}
           />
         ))}
       </div>
