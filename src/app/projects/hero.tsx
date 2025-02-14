@@ -3,18 +3,10 @@
 import { useState ,useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export default function Component() {
   const [scrollPosition, setScrollPosition] = useState(0)
-  const navItems = [
-    "SaaS Development",
-    "Webapp Development",
-    "Mobile App Development",
-    "SaaS Development",
-    "Webapp Development",
-    "Mobile App Development",
-  ]
+
   const images = [
     "https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list.svg",
     "https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list-dark.svg"
@@ -46,37 +38,7 @@ export default function Component() {
 
 
   return (
-    <div className="relative min-h-[400px] bg-[#0a0f1c] text-white overflow-hidden min-w-[30]">
-      {/* Navigation */}
-      <div className="relative max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => scroll("left")}
-            className="absolute left-0 z-10 text-white hover:text-white"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-
-          <div id="nav-container" className="flex overflow-x-hidden scroll-smooth gap-6 px-8">
-            {navItems.map((item, index) => (
-              <div key={index} className="whitespace-nowrap text-sm text-gray-400">
-                {item}
-              </div>
-            ))}
-          </div>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => scroll("right")}
-            className="absolute right-0 z-10 text-white hover:text-white"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
+    <div className="relative h-350 bg-[#05132e] text-white overflow-hidden w-6xl">
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto px-4 pt-16 pb-24 relative z-10">
@@ -99,12 +61,12 @@ export default function Component() {
       </div>
 
       {/* Floating Images */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[400px]">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] ">
         <div className="relative w-full h-full">
           <img
             src={images[currentImageIndex]}
             alt="Website and mobile app mockups"
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-full h-auto object-contain"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-100 h-80 object-contain"
           />
         </div>
       </div>
