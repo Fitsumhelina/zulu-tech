@@ -9,7 +9,7 @@ const navItems = [
   { name: "SaaS Development", link: "/saas-development" },
   { name: "Webapp Development", link: "/webapp-development" },
   { name: "Mobile App Development", link: "/mobile-app-development" },
-  { name: "SaaS Development", link: "/saas-development" },
+  { name: "E-Learning", link: "/saas-development" },
   { name: "Webapp Development", link: "/webapp-development" },
   { name: "Mobile App Development", link: "/mobile-app-development" },
   { name: "SaaS Development", link: "/saas-development" },
