@@ -14,7 +14,7 @@ interface ProductCardProps {
   currentPrice: number
   originalPrice: number
   techStack: string[]
-  type: string
+  category: string
 }
 
 interface Product {
@@ -27,7 +27,7 @@ interface Product {
   currentPrice: number
   originalPrice: number
   techStack: string[]
-  type: string
+  category: string
 }
 
 export function ProductCard({
@@ -39,7 +39,7 @@ export function ProductCard({
   currentPrice = 300,
   originalPrice = 400,
   techStack = ["React", "NextJS", "Tailwind CSS"],
-  type = "Web Development",
+  category = "Web Development",
 }: ProductCardProps) {
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
@@ -47,7 +47,7 @@ export function ProductCard({
         <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover" />
       </div>
       <div className="p-4">
-        <p className="mb-2">{type}</p>
+        <p className="mb-2">{category}</p>
         <h3 className="font-semibold text-lg mb-2">{title}</h3>
         <p className="text-sm text-muted-foreground mb-3">{description}</p>
         <div className="flex items-center gap-1 mb-3">
