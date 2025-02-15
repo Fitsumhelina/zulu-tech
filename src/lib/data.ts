@@ -12,6 +12,7 @@ export const products = [
   originalPrice: 350,
   techStack: ["AWS", "Terraform", "Docker"],
   category: "Cloud Computing",
+  difficulty: "intermediate",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/cloudsuite.png",
 },
 {
@@ -24,6 +25,7 @@ export const products = [
   originalPrice: 700,
   techStack: ["Python", "TensorFlow", "Keras"],
   category: "Machine Learning",
+  difficulty: "advanced",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/mltoolkit.png",
 },
 {
@@ -36,6 +38,7 @@ export const products = [
   originalPrice: 450,
   techStack: ["Apache Kafka", "Spark", "Tableau"],
   category: "Data Analytics",
+  difficulty: "intermediate",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/analyticspro.png",
 },
 {
@@ -48,6 +51,7 @@ export const products = [
   originalPrice: 300,
   techStack: ["Flutter", "Dart", "Firebase"],
   category: "Mobile Development",
+  difficulty: "intermediate",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/mobileframework.png",
 },
 {
@@ -60,6 +64,7 @@ export const products = [
   originalPrice: 400,
   techStack: ["Kubernetes", "Docker", "Helm"],
   category: "DevOps",
+  difficulty: "advanced",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/containerplatform.png",
 },
 {
@@ -72,6 +77,7 @@ export const products = [
   originalPrice: 150,
   techStack: ["JavaScript", "TypeScript", "Node.js"],
   category: "Web Development",
+  difficulty: "beginner",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/webide.png",
 },
 {
@@ -84,6 +90,7 @@ export const products = [
   originalPrice: 550,
   techStack: ["Salesforce", "Apex", "Visualforce"],
   category: "CRM",
+  difficulty: "intermediate",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/crmsystem.png",
 },
 {
@@ -96,6 +103,7 @@ export const products = [
   originalPrice: 250,
   techStack: ["WordPress", "PHP", "MySQL"],
   category: "Content Management",
+  difficulty: "beginner",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/cmsplatform.png",
 },
 {
@@ -108,6 +116,7 @@ export const products = [
   originalPrice: 500,
   techStack: ["AWS Lambda", "Serverless Framework", "Node.js"],
   category: "Serverless",
+  difficulty:"beginner",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/serverlessplatform.png",
 },
 {
@@ -120,6 +129,7 @@ export const products = [
   originalPrice: 750,
   techStack: ["PostgreSQL", "SQL", "PL/pgSQL"],
   category: "Database Management",
+  difficulty: "advanced",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/dbms.png",
 },
 {
@@ -132,6 +142,7 @@ export const products = [
   originalPrice: 350,
   techStack: ["Node.js", "Socket.io", "React"],
   category: "Real-Time Applications",
+  difficulty: "intermediate",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/realtimeframework.png",
 },
 {
@@ -144,6 +155,7 @@ export const products = [
   originalPrice: 650,
   techStack: ["Ansible", "Puppet", "Chef"],
   category: "IT Operations",
+  difficulty: "advanced",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/itopsuite.png",
 },
 {
@@ -156,6 +168,7 @@ export const products = [
   originalPrice: 450,
   techStack: ["VMware", "VirtualBox", "KVM"],
   category: "Virtualization",
+  difficulty: "beginner",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/virtualizationtool.png",
 },
 {
@@ -168,6 +181,7 @@ export const products = [
   originalPrice: 850,
   techStack: ["Ethereum", "Solidity", "Web3.js"],
   category: "Blockchain",
+  difficulty: "intermediate",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/blockchainplatform.png",
 },
 {
@@ -180,6 +194,7 @@ export const products = [
   originalPrice: 550,
   techStack: ["Cisco", "Juniper", "NetFlow"],
   category: "Network Management",
+  difficulty: "intermediate",
   thumbnail: "https://aceternity.com/images/products/thumbnails/new/networkopsuite.png",
 }
 
