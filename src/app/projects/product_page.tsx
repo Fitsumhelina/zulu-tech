@@ -2,42 +2,51 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { products } from "@/lib/data";
+import { products } from "@/lib/data"; // Ensure products are correctly structured
+import { ProductCard } from "./product_card";
+import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function ProductsPage() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category") || "all";
+  const initialDifficulty = searchParams.get("difficulty") || "all";
+  const initialRating = searchParams.get("rating") || "all";
+  const initialPriceRange = searchParams.get("price") || "all";
 
   const [category, setCategory] = useState(initialCategory);
-  const [difficulty, setDifficulty] = useState("all");
-  const [rating, setRating] = useState("all");
-  const [budget, setBudget] = useState("all");
+  const [difficulty, setDifficulty] = useState(initialDifficulty);
+  const [rating, setRating] = useState(initialRating);
+  const [priceRange, setPriceRange] = useState(initialPriceRange);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
 
   useEffect(() => {
     setCategory(initialCategory);
-  }, [initialCategory]);
+    setDifficulty(initialDifficulty);
+    setRating(initialRating);
+    setPriceRange(initialPriceRange);
+  }, [initialCategory, initialDifficulty, initialRating, initialPriceRange]);
 
-  const filterProducts = () => {
-    return products.filter((product) => {
-      const categoryMatch = category === "all" || product.category === category;
-      const difficultyMatch = difficulty === "all" || product.difficulty === difficulty;
-      const ratingMatch = rating === "all" || product.rating >= parseFloat(rating);
-      const budgetMatch =
-        budget === "all" ||
-        (budget === "40-200" && product.price >= 40 && product.price <= 200) ||
-        (budget === "201-500" && product.price > 200 && product.price <= 500) ||
-        (budget === "501+" && product.price > 500);
+  // Filter function
+  const filteredProducts = products.filter((product) => {
+    const categoryMatch = category === "all" || product.category === category;
+    const difficultyMatch = difficulty === "all" || product.difficulty === difficulty;
+    const ratingMatch = rating === "all" || product.rating >= Number(rating);
+    const priceMatch =
+      priceRange === "all" ||
+      (priceRange === "40-300" && product.currentPrice <= 300) ||
+      (priceRange === "301-600" && product.currentPrice > 300 && product.currentPrice <= 600) ||
+      (priceRange === "601+" && product.currentPrice > 600);
 
-      return categoryMatch && difficultyMatch && ratingMatch && budgetMatch;
-    });
-  };
+    return categoryMatch && difficultyMatch && ratingMatch && priceMatch;
+  });
 
-  const filteredProducts = filterProducts();
+  // Pagination
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-  const currentProducts = filteredProducts.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
 
   return (
     <div className="container mx-auto py-8 px-4">
@@ -45,12 +54,13 @@ export default function ProductsPage() {
 
       {/* Filters */}
       <div className="flex flex-wrap gap-4 mb-8">
+        {/* Category Filter */}
         <Select onValueChange={setCategory} value={category}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Category" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All</SelectItem>
+            <SelectItem value="all">All Categories</SelectItem>
             <SelectItem value="saas-development">SaaS Development</SelectItem>
             <SelectItem value="webapp-development">Webapp Development</SelectItem>
             <SelectItem value="mobile-app-development">Mobile App Development</SelectItem>
@@ -58,55 +68,87 @@ export default function ProductsPage() {
           </SelectContent>
         </Select>
 
+        {/* Difficulty Filter */}
         <Select onValueChange={setDifficulty} value={difficulty}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Difficulty" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All</SelectItem>
+            <SelectItem value="all">All Difficulties</SelectItem>
             <SelectItem value="easy">Easy</SelectItem>
             <SelectItem value="medium">Medium</SelectItem>
             <SelectItem value="hard">Hard</SelectItem>
           </SelectContent>
         </Select>
 
+        {/* Rating Filter */}
         <Select onValueChange={setRating} value={rating}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Rating" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All</SelectItem>
+            <SelectItem value="all">All Ratings</SelectItem>
             <SelectItem value="5">5 Stars</SelectItem>
-            <SelectItem value="4.5">4.5+ Stars</SelectItem>
-            <SelectItem value="4">4+ Stars</SelectItem>
+            <SelectItem value="4.5">4.5 and up</SelectItem>
+            <SelectItem value="4">4 and up</SelectItem>
           </SelectContent>
         </Select>
 
-        <Select onValueChange={setBudget} value={budget}>
+        {/* Price Range Filter */}
+        <Select onValueChange={setPriceRange} value={priceRange}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Price Range" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All</SelectItem>
-            <SelectItem value="40-200">$40 - $200</SelectItem>
-            <SelectItem value="201-500">$201 - $500</SelectItem>
-            <SelectItem value="501+">$501+</SelectItem>
+            <SelectItem value="all">All Prices</SelectItem>
+            <SelectItem value="40-300">$40 - $300</SelectItem>
+            <SelectItem value="301-600">$301 - $600</SelectItem>
+            <SelectItem value="601+">$601+</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
+      {/* Results Count */}
+      <div className="flex justify-between items-center mb-6">
+        <p className="text-sm text-muted-foreground">{filteredProducts.length} results</p>
+      </div>
+
       {/* Product Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {currentProducts.map((product) => (
-          <div key={product.id} className="border rounded-lg overflow-hidden">
-            <img src={product.image || "/placeholder.svg"} alt={product.title} className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="font-semibold mb-2">{product.title}</h3>
-              <p className="text-sm text-muted-foreground mb-4">{product.description}</p>
-            </div>
-          </div>
-        ))}
+        {currentProducts.length > 0 ? (
+          currentProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              imageUrl={product.imageUrl}
+              title={product.title}
+              description={product.description}
+              rating={product.rating}
+              reviews={product.reviews}
+              currentPrice={product.currentPrice}
+              originalPrice={product.originalPrice}
+              techStack={product.techStack}
+              category={product.category}
+            />
+          ))
+        ) : (
+          <p className="text-center col-span-3">No products found.</p>
+        )}
       </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex justify-center gap-2 mt-8">
+          {[...Array(totalPages)].map((_, i) => (
+            <Button
+              key={i + 1}
+              variant={currentPage === i + 1 ? "default" : "outline"}
+              onClick={() => setCurrentPage(i + 1)}
+            >
+              {i + 1}
+            </Button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
