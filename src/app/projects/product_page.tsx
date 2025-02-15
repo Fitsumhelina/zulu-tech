@@ -119,7 +119,7 @@ export default function ProductsPage() {
           currentProducts.map((product) => (
             <ProductCard
               key={product.id}
-              imageUrl={product.imageUrl}
+              imageUrl={product.thumbnail}
               title={product.title}
               description={product.description}
               rating={product.rating}
