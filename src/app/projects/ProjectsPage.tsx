@@ -15,8 +15,8 @@ const ProjectsPage = () => {
     <div>
       <div className="h-20 md:h-10"></div>
       <Category />
-      <Hero />
-      <ProjectsCarousel />
+      {/* <Hero />
+      <ProjectsCarousel /> */}
 
       {/* Show Product Grid based on Category */}
       <h1 className="text-2xl font-bold text-center mt-6">
