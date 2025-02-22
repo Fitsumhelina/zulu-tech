@@ -3,7 +3,7 @@ import React from "react";
 import Hero from "./hero";
 import Catagory from "./Catagory";
 import ProjectsCarousel from "./projects-carousel";
-import ProductGrid from "./product_grid";
+import ProductGrid from "./ProductGrid";
 
 const page = () => {
   return (
@@ -13,6 +13,7 @@ const page = () => {
    <Hero/>
    <ProjectsCarousel/>
    <ProductGrid/>
+   {/* <ProjectsPage/> */}
     </div>
   );
 };

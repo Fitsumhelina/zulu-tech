@@ -30,9 +30,10 @@ function Category() {
   };
 
   const handleNavigation = (category: string) => {
-    router.push(`/ProductsPage?category=${encodeURIComponent(category)}`, { scroll: false });
-
+    router.push(`/projects?category=${encodeURIComponent(category)}`, { scroll: false });
   };
+  
+  
 
   return (
     <>

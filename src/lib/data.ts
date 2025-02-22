@@ -68,7 +68,7 @@ export const products = [
     thumbnail: "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
   },
 
-  //duplicate products
+  //duplicate products can be replaced removed after
   {
     id: "1",
     title: "Product 1",
