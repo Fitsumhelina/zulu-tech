@@ -15,11 +15,17 @@ const Page = () => {
   return (
     <div className="">
       <div className="h-20 md:h-10"></div>
-      <Catagory />
-      <Hero />
-      <ProjectsCarousel />
-      
-      {/* Show ProductsPage only when a category is clicked */}
+
+      {/* Hide Hero and ProjectsCarousel if a category is clicked */}
+      {!category && (
+        <>
+          <Catagory />
+          <Hero />
+          <ProjectsCarousel />
+        </>
+      )}
+
+      {/* Show ProductsPage only when a category is clicked, otherwise show ProductGrid */}
       {category ? <ProductsPage /> : <ProductGrid />}
     </div>
   );
