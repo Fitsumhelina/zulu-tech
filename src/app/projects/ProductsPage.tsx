@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { products } from "@/lib/data"; // Ensure products are correctly structured
 import { ProductCard } from "./product_card";
 import { Button } from "@/components/ui/button";
@@ -9,30 +9,38 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export default function ProductsPage() {
   const searchParams = useSearchParams();
-  const initialCategory = searchParams.get("category") || "all";
-  const initialDifficulty = searchParams.get("difficulty") || "all";
-  const initialRating = searchParams.get("rating") || "all";
-  const initialPriceRange = searchParams.get("price") || "all";
+  const router = useRouter();
 
-  const [category, setCategory] = useState(initialCategory);
-  const [difficulty, setDifficulty] = useState(initialDifficulty);
-  const [rating, setRating] = useState(initialRating);
-  const [priceRange, setPriceRange] = useState(initialPriceRange);
+  // State for filters
+  const [category, setCategory] = useState(searchParams.get("category") || "all");
+  const [difficulty, setDifficulty] = useState(searchParams.get("difficulty") || "all");
+  const [rating, setRating] = useState(searchParams.get("rating") || "all");
+  const [priceRange, setPriceRange] = useState(searchParams.get("price") || "all");
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
 
+  // Update filters when the URL changes
   useEffect(() => {
-    setCategory(initialCategory);
-    setDifficulty(initialDifficulty);
-    setRating(initialRating);
-    setPriceRange(initialPriceRange);
-  }, [initialCategory, initialDifficulty, initialRating, initialPriceRange]);
+    setCategory(searchParams.get("category") || "all");
+    setDifficulty(searchParams.get("difficulty") || "all");
+    setRating(searchParams.get("rating") || "all");
+    setPriceRange(searchParams.get("price") || "all");
+    setCurrentPage(Number(searchParams.get("page")) || 1);
+  }, [searchParams]);
+
+  // Update URL when filters change
+  const updateQueryParams = (key: string, value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set(key, value);
+    params.set("page", "1"); // Reset pagination on filter change
+    router.push(`/ProductsPage?${params.toString()}`);
+  };
 
   // Filter function
   const filteredProducts = products.filter((product) => {
     const categoryMatch = category === "all" || product.category === category;
     const difficultyMatch = difficulty === "all" || product.difficulty === difficulty;
-    const ratingMatch = rating === "all" || product.rating >= Number(rating);
+    const ratingMatch = rating === "all" || (Number(rating) && product.rating >= Number(rating));
     const priceMatch =
       priceRange === "all" ||
       (priceRange === "40-300" && product.currentPrice <= 300) ||
@@ -55,7 +63,7 @@ export default function ProductsPage() {
       {/* Filters */}
       <div className="flex flex-wrap gap-4 mb-8">
         {/* Category Filter */}
-        <Select onValueChange={setCategory} value={category}>
+        <Select onValueChange={(value) => updateQueryParams("category", value)} value={category}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Category" />
           </SelectTrigger>
@@ -69,7 +77,7 @@ export default function ProductsPage() {
         </Select>
 
         {/* Difficulty Filter */}
-        <Select onValueChange={setDifficulty} value={difficulty}>
+        <Select onValueChange={(value) => updateQueryParams("difficulty", value)} value={difficulty}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Difficulty" />
           </SelectTrigger>
@@ -82,7 +90,7 @@ export default function ProductsPage() {
         </Select>
 
         {/* Rating Filter */}
-        <Select onValueChange={setRating} value={rating}>
+        <Select onValueChange={(value) => updateQueryParams("rating", value)} value={rating}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Rating" />
           </SelectTrigger>
@@ -95,7 +103,7 @@ export default function ProductsPage() {
         </Select>
 
         {/* Price Range Filter */}
-        <Select onValueChange={setPriceRange} value={priceRange}>
+        <Select onValueChange={(value) => updateQueryParams("price", value)} value={priceRange}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Price Range" />
           </SelectTrigger>
@@ -142,7 +150,7 @@ export default function ProductsPage() {
             <Button
               key={i + 1}
               variant={currentPage === i + 1 ? "default" : "outline"}
-              onClick={() => setCurrentPage(i + 1)}
+              onClick={() => updateQueryParams("page", String(i + 1))}
             >
               {i + 1}
             </Button>

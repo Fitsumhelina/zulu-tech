@@ -30,7 +30,8 @@ function Category() {
   };
 
   const handleNavigation = (category: string) => {
-    router.push(`/product_page?category=${category}`);
+    router.push(`/ProductsPage?category=${encodeURIComponent(category)}`, { scroll: false });
+
   };
 
   return (
