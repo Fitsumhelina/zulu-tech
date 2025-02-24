@@ -1,11 +1,14 @@
-import { useRouter } from "next/router";
+// app/products/[id].tsx
+"use client";
+
+import { useRouter } from "next/navigation";
 import { products } from "@/lib/data";
 import ProductDetail from "./ProductDetails";
 import ProjectsCarousel from "./projects-carousel";
 
 export default function ProductDetailPage() {
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router.query; // Get the product ID from the URL
 
   // Find the product by ID
   const product = products.find((p) => p.id === id);

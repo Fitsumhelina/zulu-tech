@@ -33,7 +33,7 @@ export default function ProductDetail({
   thumbnail,
 }: ProductDetailProps) {
   return (
-    <div className="container mx-auto p-4 max-w-6xl">
+    <div className="container mx-auto p-4 max-w-6xl dark:text-black">
       <div className="grid gap-8">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-4">
