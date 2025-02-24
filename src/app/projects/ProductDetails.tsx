@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Star } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress"; // Ensure this is imported correctly
 import { Badge } from "@/components/ui/badge";
