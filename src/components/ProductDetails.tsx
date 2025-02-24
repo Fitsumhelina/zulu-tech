@@ -68,12 +68,12 @@ export default function ProductDetail({
         </div>
 
         {/* Image Gallery */}
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+        <div className="relative aspect-[12/8] w-full overflow-hidden rounded-lg">
           <Image
             src={thumbnail || "/placeholder.svg"}
             alt={title}
             fill
-            className="object-cover"
+            className="object-cover "
             priority
           />
         </div>

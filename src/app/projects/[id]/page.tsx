@@ -34,7 +34,6 @@ export default function ProductDetailPage() {
         difficulty={product.difficulty}
         thumbnail={product.thumbnail}
       />
-      <ProjectsCarousel />
     </div>
   );
 }
