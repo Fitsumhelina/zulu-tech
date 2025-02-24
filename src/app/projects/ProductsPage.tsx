@@ -134,6 +134,7 @@ export default function ProductsPage() {
           currentProducts.map((product) => (
             <ProductCard
               key={product.id}
+              id={product.id}
               imageUrl={product.thumbnail}
               title={product.title}
               description={product.description}
