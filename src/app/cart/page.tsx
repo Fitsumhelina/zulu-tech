@@ -1,25 +1,30 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { useCart } from "@/app/context/CartContext"; // Import useCart
-import Catagory from "@/components/Catagory"; // Import Category component
+import { useCart } from "@/app/context/CartContext";
+import Catagory from "@/components/Catagory";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function CartPage() {
-  const { cartItems } = useCart(); // Fetch cart items from the context
+  const { cartItems, removeFromCart } = useCart();
+  const [paymentOption, setPaymentOption] = useState(null); // Manage checkbox state
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
   const totalDiscount = cartItems.reduce((sum, item) => sum + item.discount, 0);
   const total = subtotal - totalDiscount;
 
-  return (
+  const handleCheckboxChange = (option) => {
+    setPaymentOption(option === paymentOption ? null : option); // Toggle selection
+  };
 
+  return (
     <div className="container mx-auto p-4">
-    <div className="mt-20">
-        
-        <Catagory/>
+      <div className="mt-20">
+        <Catagory />
         <div className="flex justify-center">
           <div className="relative w-full max-w-lg mt-10">
             <Input
@@ -41,14 +46,15 @@ export default function CartPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Cart Items */}
           <div className="lg:col-span-2">
-            <div className="grid grid-cols-2 gap-4 mb-4 font-semibold">
+            <div className="grid grid-cols-3 gap-4 mb-4 font-semibold">
               <div>Project</div>
               <div className="text-right">Price</div>
+              <div className="text-right">Action</div>
             </div>
             <Separator className="mb-4" />
 
             {cartItems.map((item) => (
-              <div key={item.id} className="grid grid-cols-2 gap-4 mb-6">
+              <div key={item.id} className="grid grid-cols-3 gap-4 mb-6 items-center">
                 <div className="flex gap-4">
                   <div className="relative w-24 h-16 rounded overflow-hidden">
                     <Image
@@ -66,6 +72,16 @@ export default function CartPage() {
                   </div>
                 </div>
                 <div className="text-right">${item.price}</div>
+                <div className="text-right">
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    onClick={() => removeFromCart(item.id)}
+                    className="px-3 py-1"
+                  >
+                    Delete
+                  </Button>
+                </div>
               </div>
             ))}
           </div>
@@ -76,10 +92,24 @@ export default function CartPage() {
               <h2 className="text-lg font-bold mb-6">ORDER SUMMARY</h2>
 
               <div className="space-y-4 mb-6">
-                <div className="flex justify-between">
-                  <Button variant="outline" className="w-full">
+                <div className="flex items-center justify-between">
+                  <label className="flex items-center gap-2">
+                    <Checkbox
+                      checked={paymentOption === "oneTime"}
+                      onCheckedChange={() => handleCheckboxChange("oneTime")}
+                    />
                     One Time Payment
-                  </Button>
+                  </label>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <label className="flex items-center gap-2">
+                    <Checkbox
+                      checked={paymentOption === "instant"}
+                      onCheckedChange={() => handleCheckboxChange("instant")}
+                    />
+                    Instant Based Payment
+                  </label>
                 </div>
               </div>
 
@@ -101,13 +131,13 @@ export default function CartPage() {
                 <span className="font-bold">${total}</span>
               </div>
 
-              <Button className="w-full" size="lg">
+              <Button className="w-full" size="lg" disabled={!paymentOption}>
                 Checkout
               </Button>
             </div>
           </div>
         </div>
       </div>
-      </div>
+    </div>
   );
 }
