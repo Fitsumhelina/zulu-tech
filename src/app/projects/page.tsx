@@ -21,6 +21,7 @@ const Page = () => {
         <>
           <Category />
           <Hero />
+      <h3 className="text-3xl ml-10 font-bold mb-3">Popular Projects</h3>
           <ProjectsCarousel />
         </>
       )}
