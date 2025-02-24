@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/app/context/CartContext"; // Import useCart
+import Catagory from "@/components/Catagory"; // Import Category component
 
 export default function CartPage() {
   const { cartItems } = useCart(); // Fetch cart items from the context
@@ -14,9 +15,12 @@ export default function CartPage() {
   const total = subtotal - totalDiscount;
 
   return (
+
     <div className="container mx-auto p-4">
-      <div className=" mt-20 ">
-        <div className="flex justify-center mt-10">
+    <div className="mt-20">
+        
+        <Catagory/>
+        <div className="flex justify-center">
           <div className="relative w-full max-w-lg mt-10">
             <Input
               type="text"
@@ -104,6 +108,6 @@ export default function CartPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 }
