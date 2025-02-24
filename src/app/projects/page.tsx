@@ -1,20 +1,34 @@
-import { ProjectsPage } from "@/components/custom/projects";
-import React from "react";
-import Hero from "./hero";
-import Catagory from "./Catagory";
-import ProjectsCarousel from "./projects-carousel";
-import ProductGrid from "./product_grid";
+"use client";
 
-const page = () => {
+import { useSearchParams } from "next/navigation";
+import React from "react";
+import Hero from "@/components/hero";
+import Category from "@/components/Catagory";
+import ProjectsCarousel from "@/components/projects-carousel";
+import ProductGrid from "@/components/ProductGrid";
+import ProductsPage from "@/components/ProductsPage";
+
+const Page = () => {
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category"); // Get category from URL
+
   return (
     <div className="">
-    <div className="h-20 md:h-10"></div>
-    <Catagory/>
-   <Hero/>
-   <ProjectsCarousel/>
-   <ProductGrid/>
+      <div className="h-20 md:h-10"></div>
+
+      {/* Hide Hero and ProjectsCarousel if a category is clicked */}
+      {!category && (
+        <>
+          <Category />
+          <Hero />
+          <ProjectsCarousel />
+        </>
+      )}
+
+      {/* Show ProductsPage only when a category is clicked, otherwise show ProductGrid */}
+      {category ? <ProductsPage /> : <ProductGrid />}
     </div>
   );
 };
 
-export default page;
+export default Page;

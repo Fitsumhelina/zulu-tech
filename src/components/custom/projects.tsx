@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import Hero from "@/app/projects/hero";
+import Hero from "@/components/hero";
 
 const projects = [
   {
