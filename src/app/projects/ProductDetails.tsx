@@ -1,28 +1,27 @@
-import Image from "next/image"
-import { Star } from "lucide-react"
+import Image from "next/image";
+import { Star } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-// import { Progress } from "@/components/ui/progress" // Ensure this path is correct or remove if not used
-import { Badge } from "@/components/ui/badge"
-import { Textarea } from "@/components/ui/textarea"
-import ProjectsCarousel from "./projects-carousel"
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress"; // Ensure this is imported correctly
+import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
+import ProjectsCarousel from "./projects-carousel";
 
 interface ProductDetailProps {
-  id: string
-  title: string
-  description: string
-  rating: number
-  reviews: number
-  currentPrice: number
-  originalPrice: number
-  techStack: string[]
-  category: string
-  difficulty: string
-  thumbnail: string
+  id: string;
+  title: string;
+  description: string;
+  rating: number;
+  reviews: number;
+  currentPrice: number;
+  originalPrice: number;
+  techStack: string[];
+  category: string;
+  difficulty: string;
+  thumbnail: string;
 }
 
 export default function ProductDetail({
-  // id, // Remove this line if 'id' is not used
   title,
   description,
   rating,
@@ -66,7 +65,13 @@ export default function ProductDetail({
 
         {/* Image Gallery */}
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-          <Image src={thumbnail || "/placeholder.svg"} alt={title} fill className="object-cover" />
+          <Image
+            src={thumbnail || "/placeholder.svg"}
+            alt={title}
+            fill
+            className="object-cover"
+            priority // Add priority for above-the-fold images
+          />
         </div>
 
         {/* Main Content Grid */}
@@ -114,7 +119,8 @@ export default function ProductDetail({
                   Future Updates
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-500"></span>6 Months Support
+                  <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                  6 Months Support
                 </li>
               </ul>
               <Button className="w-full">Purchase Now</Button>
@@ -178,6 +184,5 @@ export default function ProductDetail({
         </section>
       </div>
     </div>
-  )
+  );
 }
-

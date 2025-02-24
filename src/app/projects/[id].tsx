@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { products } from "@/lib/data";
-import ProductDetail from "@/components/ProductDetail";
-import ProjectsCarousel from "@/components/projects-carousel";
+import ProductDetail from "./ProductDetails";
+import ProjectsCarousel from "./projects-carousel";
 
 export default function ProductDetailPage() {
   const router = useRouter();
