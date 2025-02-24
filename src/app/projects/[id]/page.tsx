@@ -1,13 +1,16 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { products } from "@/lib/data";
 import ProductDetails from "@/components/ProductDetails";
 import ProjectsCarousel from "@/components/projects-carousel";
 
 export default function ProductDetailPage() {
-  const router = useRouter();
-  const { id } = router.query; // Get the product ID from the URL
+  const params = useParams(); // Get the dynamic route parameters
+  const { id } = params; // Destructure the `id` from params
+
+  // Debugging: Log the ID from the URL
+  console.log("ID from URL:", id);
 
   // Find the product by ID
   const product = products.find((p) => p.id === id);
