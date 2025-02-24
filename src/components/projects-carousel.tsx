@@ -18,7 +18,6 @@ export default function ProjectsCarousel() {
 
   return (
     <div className="relative max-w-8xl mx-auto px-4 py-4 bg-white-500 overflow-hidden mt-10 mr-8 ml-8">
-      <h3 className="text-3xl ml-10 font-bold mb-3">Popular Projects</h3>
       <div className="relative">
         <Button
           size="icon"

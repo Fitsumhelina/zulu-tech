@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { Star } from "lucide-react";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation"; // Import useRouter
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/app/context/CartContext"; // Import useCart
 
 interface ProductCardProps {
   id: string;
@@ -30,10 +33,28 @@ export function ProductCard({
   techStack = ["React", "NextJS", "Tailwind CSS"],
   category = "Web Development",
 }: ProductCardProps) {
+  const router = useRouter(); // Initialize useRouter
+  const { addToCart } = useCart(); // Initialize useCart
+
+  const handleBuyNow = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent the Link from navigating
+    // Add the product to the cart
+    addToCart({
+      id,
+      title,
+      price: currentPrice,
+      discount: originalPrice - currentPrice,
+      thumbnail: imageUrl,
+    });
+
+    // Navigate to the cart page
+    router.push("/cart");
+  };
+
   return (
-    <Link href={`/projects/${id}`}>
-      <div className="rounded-lg border bg-card text-card-foreground shadow-sm cursor-pointer">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-lg">
+    <Link href={`/projects/${id}`} passHref> {/* Wrap the body in a Link */}
+      <div className="rounded-lg border bg-card text-card-foreground shadow-sm mt-12 cursor-pointer">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-lg mt-10">
           <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover" />
         </div>
         <div className="p-4">
@@ -56,7 +77,7 @@ export function ProductCard({
               <span className="text-lg font-semibold">${currentPrice}</span>
               <span className="text-sm text-muted-foreground line-through">${originalPrice}</span>
             </div>
-            <Button>Buy Now</Button>
+            <Button onClick={handleBuyNow}>Buy Now</Button> {/* Add onClick handler */}
           </div>
           <div className="flex items-center gap-2 mb-3">
             {techStack.map((tech, index) => (

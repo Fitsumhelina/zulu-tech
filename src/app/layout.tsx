@@ -8,6 +8,7 @@ import { FloatingNav } from "@/components/ui/floating-navbar";
 import { navItems } from "@/lib/data";
 import { Footer } from "@/components/custom/footer";
 import Logo from "@/components/custom/logo";
+import { CartProvider } from "@/app/context/CartContext"; // Import CartProvider
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,9 +24,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Zulu Tech",
   description: "Zulu Tech Ethiopia",
-  icons:{
-    icon:"/logo1.png",
-  }
+  icons: {
+    icon: "/logo1.png",
+  },
 };
 
 export default function RootLayout({
@@ -44,21 +45,22 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="z-[70] fixed flex justify-between px-10 items-center   bg-inherit w-full h-24">
-           <div>
-            <div className="flex"></div>
-           <div className="hidden sm:flex -mb-2">
-           <Logo width={125} height={125} />
+          {/* Wrap children with CartProvider */}
+          <CartProvider>
+            <div className="z-[70] fixed flex justify-between px-10 items-center bg-inherit w-full h-24">
+              <div>
+                <div className="flex"></div>
+                <div className="hidden sm:flex -mb-2">
+                  <Logo width={125} height={125} />
+                </div>
+              </div>
 
-           </div>
-           </div>
-           
-       
-            <FloatingNav navItems={navItems} />
+              <FloatingNav navItems={navItems} />
 
-            <ThemeToggle />
-          </div>
-          {children}
+              <ThemeToggle />
+            </div>
+            {children}
+          </CartProvider>
         </ThemeProvider>
         <Footer />
       </body>
