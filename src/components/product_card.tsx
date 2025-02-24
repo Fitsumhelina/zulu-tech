@@ -36,7 +36,8 @@ export function ProductCard({
   const router = useRouter(); // Initialize useRouter
   const { addToCart } = useCart(); // Initialize useCart
 
-  const handleBuyNow = () => {
+  const handleBuyNow = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent the Link from navigating
     // Add the product to the cart
     addToCart({
       id,
@@ -51,38 +52,40 @@ export function ProductCard({
   };
 
   return (
-    <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-lg">
-        <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover" />
-      </div>
-      <div className="p-4">
-        <p className="mb-2">{category}</p>
-        <h3 className="font-semibold text-lg mb-2">{title}</h3>
-        <p className="text-sm text-muted-foreground mb-3">{description}</p>
-        <div className="flex items-center gap-1 mb-3">
-          {Array(5)
-            .fill(null)
-            .map((_, i) => (
-              <Star
-                key={i}
-                className={`w-4 h-4 ${i < rating ? "fill-primary" : "fill-muted stroke-muted-foreground"}`}
-              />
-            ))}
-          <span className="text-sm text-muted-foreground ml-1">{reviews}</span>
+    <Link href={`/projects/${id}`} passHref> {/* Wrap the body in a Link */}
+      <div className="rounded-lg border bg-card text-card-foreground shadow-sm mt-12 cursor-pointer">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-lg mt-10">
+          <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover" />
         </div>
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <span className="text-lg font-semibold">${currentPrice}</span>
-            <span className="text-sm text-muted-foreground line-through">${originalPrice}</span>
+        <div className="p-4">
+          <p className="mb-2">{category}</p>
+          <h3 className="font-semibold text-lg mb-2">{title}</h3>
+          <p className="text-sm text-muted-foreground mb-3">{description}</p>
+          <div className="flex items-center gap-1 mb-3">
+            {Array(5)
+              .fill(null)
+              .map((_, i) => (
+                <Star
+                  key={i}
+                  className={`w-4 h-4 ${i < rating ? "fill-primary" : "fill-muted stroke-muted-foreground"}`}
+                />
+              ))}
+            <span className="text-sm text-muted-foreground ml-1">{reviews}</span>
           </div>
-          <Button onClick={handleBuyNow}>Buy Now</Button> {/* Add onClick handler */}
-        </div>
-        <div className="flex items-center gap-2 mb-3">
-          {techStack.map((tech, index) => (
-            <Badge key={index} variant="outline">{tech}</Badge>
-          ))}
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-semibold">${currentPrice}</span>
+              <span className="text-sm text-muted-foreground line-through">${originalPrice}</span>
+            </div>
+            <Button onClick={handleBuyNow}>Buy Now</Button> {/* Add onClick handler */}
+          </div>
+          <div className="flex items-center gap-2 mb-3">
+            {techStack.map((tech, index) => (
+              <Badge key={index} variant="outline">{tech}</Badge>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

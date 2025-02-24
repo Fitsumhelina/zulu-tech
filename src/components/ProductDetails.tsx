@@ -1,10 +1,14 @@
+"use client"; // Mark this as a Client Component
+
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress"; 
+import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import ProjectsCarousel from "./projects-carousel";
+import { useRouter } from "next/navigation"; // Import useRouter
+import { useCart } from "@/app/context/CartContext"; // Import useCart
 
 interface ProductDetailProps {
   id: string;
@@ -21,6 +25,7 @@ interface ProductDetailProps {
 }
 
 export default function ProductDetail({
+  id,
   title,
   description,
   rating,
@@ -32,10 +37,26 @@ export default function ProductDetail({
   difficulty,
   thumbnail,
 }: ProductDetailProps) {
+  const router = useRouter(); // Initialize useRouter
+  const { addToCart } = useCart(); // Initialize useCart
+
+  const handleBuyNow = () => {
+    // Add the product to the cart
+    addToCart({
+      id,
+      title,
+      price: currentPrice,
+      discount: originalPrice - currentPrice,
+      thumbnail,
+    });
+
+    // Navigate to the cart page
+    router.push("/cart");
+  };
+
   return (
     <div className="container mx-auto p-4 max-w-6xl bg-white text-black dark:bg-gray-900 dark:text-gray-100">
       <div className="grid gap-8">
-
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-4">
           <div className="space-y-2">
@@ -73,7 +94,7 @@ export default function ProductDetail({
             src={thumbnail || "/placeholder.svg"}
             alt={title}
             fill
-            className="object-cover "
+            className="object-cover"
             priority
           />
         </div>
@@ -91,7 +112,9 @@ export default function ProductDetail({
               <h2 className="text-xl font-semibold mb-4">Tech Stack</h2>
               <div className="flex flex-wrap gap-2">
                 {techStack.map((tech) => (
-                  <Badge key={tech} className="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">{tech}</Badge>
+                  <Badge key={tech} className="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+                    {tech}
+                  </Badge>
                 ))}
               </div>
             </section>
@@ -99,8 +122,12 @@ export default function ProductDetail({
             <section>
               <h2 className="text-xl font-semibold mb-4">Category & Difficulty</h2>
               <div className="flex gap-4">
-                <Badge className="bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-white">{category}</Badge>
-                <Badge className="border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-300">{difficulty}</Badge>
+                <Badge className="bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-white">
+                  {category}
+                </Badge>
+                <Badge className="border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-300">
+                  {difficulty}
+                </Badge>
               </div>
             </section>
           </div>
@@ -117,7 +144,12 @@ export default function ProductDetail({
               <li>🔄 Future Updates</li>
               <li>⏳ 6 Months Support</li>
             </ul>
-            <Button className="w-full bg-green-600 hover:bg-green-700 text-white mt-4">Buy Now</Button>
+            <Button
+              onClick={handleBuyNow} // Add onClick handler
+              className="w-full bg-green-600 hover:bg-green-700 text-white mt-4"
+            >
+              Buy Now
+            </Button>
           </div>
         </div>
 
@@ -148,14 +180,16 @@ export default function ProductDetail({
             <div className="flex flex-col items-center justify-center">
               <div className="text-4xl font-bold mb-2 text-black dark:text-white">{rating}.0</div>
               <div className="flex gap-1 mb-2">
-                {Array(5).fill(null).map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-6 h-6 ${
-                      i < rating ? "fill-yellow-500" : "fill-gray-300 dark:fill-gray-600"
-                    }`}
-                  />
-                ))}
+                {Array(5)
+                  .fill(null)
+                  .map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-6 h-6 ${
+                        i < rating ? "fill-yellow-500" : "fill-gray-300 dark:fill-gray-600"
+                      }`}
+                    />
+                  ))}
               </div>
               <span className="text-sm text-gray-500 dark:text-gray-400">{reviews} Ratings</span>
             </div>
@@ -165,11 +199,16 @@ export default function ProductDetail({
           <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-700">
             <h3 className="font-semibold text-gray-700 dark:text-gray-300">Add Your Review</h3>
             <div className="flex gap-2 mb-4">
-              {Array(5).fill(null).map((_, i) => (
-                <Star key={i} className="w-6 h-6 cursor-pointer hover:fill-yellow-500 transition-colors" />
-              ))}
+              {Array(5)
+                .fill(null)
+                .map((_, i) => (
+                  <Star key={i} className="w-6 h-6 cursor-pointer hover:fill-yellow-500 transition-colors" />
+                ))}
             </div>
-            <Textarea placeholder="Write your review here..." className="min-h-[100px] bg-gray-200 dark:bg-gray-700 text-black dark:text-white" />
+            <Textarea
+              placeholder="Write your review here..."
+              className="min-h-[100px] bg-gray-200 dark:bg-gray-700 text-black dark:text-white"
+            />
             <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white mt-4">Submit</Button>
           </div>
         </section>

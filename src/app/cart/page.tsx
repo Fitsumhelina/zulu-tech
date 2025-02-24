@@ -14,7 +14,7 @@ export default function CartPage() {
   const total = subtotal - totalDiscount;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 mt-16">
       {/* Search Bar */}
       <div className="max-w-xl mx-auto mb-8">
         <div className="relative">
