@@ -2,11 +2,11 @@
 
 import { useSearchParams } from "next/navigation";
 import React from "react";
-import Hero from "./hero";
-import Catagory from "./Catagory";
-import ProjectsCarousel from "./projects-carousel";
-import ProductGrid from "./ProductGrid";
-import ProductsPage from "./ProductsPage"; // Import the ProductsPage
+import Hero from "@/components/hero";
+import Category from "@/components/Catagory";
+import ProjectsCarousel from "@/components/projects-carousel";
+import ProductGrid from "@/components/ProductGrid";
+import ProductsPage from "@/components/ProductsPage";
 
 const Page = () => {
   const searchParams = useSearchParams();
@@ -19,7 +19,7 @@ const Page = () => {
       {/* Hide Hero and ProjectsCarousel if a category is clicked */}
       {!category && (
         <>
-          <Catagory />
+          <Category />
           <Hero />
           <ProjectsCarousel />
         </>

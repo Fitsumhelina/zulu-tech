@@ -1,10 +1,9 @@
-// app/products/[id].tsx
 "use client";
 
 import { useRouter } from "next/navigation";
 import { products } from "@/lib/data";
-import ProductDetail from "./ProductDetails";
-import ProjectsCarousel from "./projects-carousel";
+import ProductDetails from "@/components/ProductDetails";
+import ProjectsCarousel from "@/components/projects-carousel";
 
 export default function ProductDetailPage() {
   const router = useRouter();
@@ -19,7 +18,7 @@ export default function ProductDetailPage() {
 
   return (
     <div>
-      <ProductDetail
+      <ProductDetails
         id={product.id}
         title={product.title}
         description={product.description}
