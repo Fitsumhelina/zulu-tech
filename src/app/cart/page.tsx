@@ -1,40 +1,17 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
+"use client";
 
-interface CartItem {
-  id: string
-  title: string
-  price: number
-  discount: number
-  thumbnail: string
-}
-
-// This would typically come from your cart state management
-const cartItems: CartItem[] = [
-  {
-    id: "1",
-    title: "Super Market e-commerce web app",
-    price: 300,
-    discount: 100,
-    thumbnail:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-02-24%20205330-U6glnJAMGD7LImTBzDua71z0XgwVM5.png",
-  },
-  {
-    id: "2",
-    title: "Career Net Africa",
-    price: 600,
-    discount: 300,
-    thumbnail:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-02-24%20205330-U6glnJAMGD7LImTBzDua71z0XgwVM5.png",
-  },
-]
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { useCart } from "@/app/context/CartContext"; // Import useCart
 
 export default function CartPage() {
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0)
-  const totalDiscount = cartItems.reduce((sum, item) => sum + item.discount, 0)
-  const total = subtotal - totalDiscount
+  const { cartItems } = useCart(); // Fetch cart items from the context
+
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+  const totalDiscount = cartItems.reduce((sum, item) => sum + item.discount, 0);
+  const total = subtotal - totalDiscount;
 
   return (
     <div className="container mx-auto p-4">
@@ -111,6 +88,5 @@ export default function CartPage() {
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+}   
