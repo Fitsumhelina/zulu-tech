@@ -14,11 +14,11 @@ export default function CartPage() {
   const total = subtotal - totalDiscount;
 
   return (
-    <div className="container mx-auto p-4 mt-16">
+    <div className="container mx-auto p-4">
       {/* Search Bar */}
-      <div className="max-w-xl mx-auto mb-8">
-        <div className="relative">
-          <Input placeholder="search here ..." className="w-full pl-4 pr-20 py-2 rounded-lg border" />
+      <div className="max-w-xl mx-auto mb-8 mt-8">
+      <div className="relative">
+          <Input placeholder="search here ..." className="w-full pl-4 pr-20 py-2 rounded-lg border mt-10" />
           <Button className="absolute right-0 top-0 bottom-0 px-6 rounded-r-lg">Explore</Button>
         </div>
       </div>
