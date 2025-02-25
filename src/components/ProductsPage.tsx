@@ -93,11 +93,11 @@ export default function ProductsPage() {
           <SelectValue placeholder="Category" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Categories</SelectItem>
-          <SelectItem value="saas-development">SaaS Development</SelectItem>
-          <SelectItem value="webapp-development">Webapp Development</SelectItem>
-          <SelectItem value="mobile-app-development">Mobile App Development</SelectItem>
-          <SelectItem value="software-development">Software Development</SelectItem>
+          <SelectItem value="all">All </SelectItem>
+          <SelectItem value="saas-development">SaaS </SelectItem>
+          <SelectItem value="webapp-development">Webapp </SelectItem>
+          <SelectItem value="mobile-app-development">Mobile App </SelectItem>
+          <SelectItem value="software-development">Software </SelectItem>
         </SelectContent>
           </Select>
 
