@@ -6,7 +6,7 @@ import { products } from "@/lib/data";
 import { ProductCard } from "./product_card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Catagory from "@/components/Catagory";
+import Category from "@/components/Catagory";
 import {
   Select,
   SelectContent,
@@ -48,7 +48,7 @@ export default function ProductsPage() {
     return (
       (category === "all" || product.category === category) &&
       (difficulty === "all" || product.difficulty === difficulty) &&
-      (rating === "all" || (Number(rating) && product.rating >= Number(rating))) &&
+      (rating === "all" || product.rating >= Number(rating)) &&
       (priceRange === "all" ||
         (priceRange === "40-300" && product.currentPrice <= 300) ||
         (priceRange === "301-600" && product.currentPrice > 300 && product.currentPrice <= 600) ||
@@ -64,7 +64,7 @@ export default function ProductsPage() {
 
   return (
     <div className="container mx-auto py-8 px-4">
-        <Catagory />
+        <Category />
         <div className="flex justify-center">
           <div className="relative w-full max-w-lg mt-4">
             <Input
