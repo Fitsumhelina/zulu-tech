@@ -5,6 +5,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { products } from "@/lib/data";
 import { ProductCard } from "./product_card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Category from "@/components/Catagory";
 import {
   Select,
   SelectContent,
@@ -46,7 +48,7 @@ export default function ProductsPage() {
     return (
       (category === "all" || product.category === category) &&
       (difficulty === "all" || product.difficulty === difficulty) &&
-      (rating === "all" || (Number(rating) && product.rating >= Number(rating))) &&
+      (rating === "all" || product.rating >= Number(rating)) &&
       (priceRange === "all" ||
         (priceRange === "40-300" && product.currentPrice <= 300) ||
         (priceRange === "301-600" && product.currentPrice > 300 && product.currentPrice <= 600) ||
@@ -61,64 +63,81 @@ export default function ProductsPage() {
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
   return (
-    <div className="container mx-auto py-8 px-4 mt-10">
-      <h1 className="text-3xl font-bold text-center mb-8">Explore Our Products</h1>
+    <div className="container mx-auto py-8 px-4">
+        <Category />
+        <div className="flex justify-center">
+          <div className="relative w-full max-w-lg mt-4">
+            <Input
+              type="text"
+              placeholder="Search..."
+              className="w-xl p-5 rounded-full text-black dark:text-white bg-white dark:bg-[#707071] border-none shadow-md focus:ring-2 focus:ring-blue-400 transition-all"
+            />
+            <Button
+              type="submit"
+              className="absolute top-0 right-0 bg-[#2D2B2A] text-white dark:text-black dark:bg-white rounded-full shadow-md transition-transform duration-300 hover:scale-105 m-0.5"
+            >
+              Explore
+            </Button>
+          </div>
+        </div>
+
+      <h1 className="text-3xl font-bold text-start mb-8 mt-4">Result for Our Products</h1>
 
       {/* Filters Section */}
-      <div className="bg-gray-100 p-4 rounded-lg shadow-sm mb-8 dark:text-black">
+      <div className="bg-gray-100 p-4 rounded-lg shadow-sm mb-8 dark:text-black w-full max-w-md">
         <h2 className="text-lg font-semibold mb-3">Filters</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="flex flex-row">
           {/* Category Filter */}
           <Select onValueChange={(value) => updateQueryParams("category", value)} value={category}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
-              <SelectItem value="saas-development">SaaS Development</SelectItem>
-              <SelectItem value="webapp-development">Webapp Development</SelectItem>
-              <SelectItem value="mobile-app-development">Mobile App Development</SelectItem>
-              <SelectItem value="software-development">Software Development</SelectItem>
-            </SelectContent>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Category" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="all">All </SelectItem>
+          <SelectItem value="saas-development">SaaS </SelectItem>
+          <SelectItem value="webapp-development">Webapp </SelectItem>
+          <SelectItem value="mobile-app-development">Mobile App </SelectItem>
+          <SelectItem value="software-development">Software </SelectItem>
+        </SelectContent>
           </Select>
 
           {/* Difficulty Filter */}
           <Select onValueChange={(value) => updateQueryParams("difficulty", value)} value={difficulty}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Difficulty" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Levels</SelectItem>
-              <SelectItem value="easy">Easy</SelectItem>
-              <SelectItem value="medium">Medium</SelectItem>
-              <SelectItem value="hard">Hard</SelectItem>
-            </SelectContent>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Difficulty" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="all">All Levels</SelectItem>
+          <SelectItem value="easy">Easy</SelectItem>
+          <SelectItem value="medium">Medium</SelectItem>
+          <SelectItem value="hard">Hard</SelectItem>
+        </SelectContent>
           </Select>
 
           {/* Rating Filter */}
           <Select onValueChange={(value) => updateQueryParams("rating", value)} value={rating}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Rating" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Ratings</SelectItem>
-              <SelectItem value="5">5 Stars</SelectItem>
-              <SelectItem value="4.5">4.5+ Stars</SelectItem>
-              <SelectItem value="4">4+ Stars</SelectItem>
-            </SelectContent>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Rating" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="all">All Ratings</SelectItem>
+          <SelectItem value="5">5 Stars</SelectItem>
+          <SelectItem value="4.5">4.5+ Stars</SelectItem>
+          <SelectItem value="4">4+ Stars</SelectItem>
+        </SelectContent>
           </Select>
 
           {/* Price Filter */}
           <Select onValueChange={(value) => updateQueryParams("price", value)} value={priceRange}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Price Range" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Prices</SelectItem>
-              <SelectItem value="40-300">$40 - $300</SelectItem>
-              <SelectItem value="301-600">$301 - $600</SelectItem>
-              <SelectItem value="601+">$601+</SelectItem>
-            </SelectContent>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Price Range" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="all">All Prices</SelectItem>
+          <SelectItem value="40-300">$40 - $300</SelectItem>
+          <SelectItem value="301-600">$301 - $600</SelectItem>
+          <SelectItem value="601+">$601+</SelectItem>
+        </SelectContent>
           </Select>
         </div>
       </div>
@@ -164,7 +183,7 @@ export default function ProductsPage() {
             </Button>
           ))}
         </div>
-      )}
+      )}  
     </div>
   );
 }

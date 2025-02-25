@@ -52,8 +52,10 @@ export function ProductCard({
   };
 
   return (
+    <div className="rounded-lg border bg-card text-card-foreground shadow-sm mt-12 cursor-pointer">
+      <div>
+
     <Link href={`/projects/${id}`} passHref> {/* Wrap the body in a Link */}
-      <div className="rounded-lg border bg-card text-card-foreground shadow-sm mt-12 cursor-pointer">
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-lg mt-10">
           <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover" />
         </div>
@@ -66,13 +68,16 @@ export function ProductCard({
               .fill(null)
               .map((_, i) => (
                 <Star
-                  key={i}
-                  className={`w-4 h-4 ${i < rating ? "fill-primary" : "fill-muted stroke-muted-foreground"}`}
+                key={i}
+                className={`w-4 h-4 ${i < rating ? "fill-primary" : "fill-muted stroke-muted-foreground"}`}
                 />
               ))}
             <span className="text-sm text-muted-foreground ml-1">{reviews}</span>
           </div>
-          <div className="flex items-center justify-between mb-4">
+              </div>
+          </Link>
+            
+          <div className="flex items-center justify-between mb-4 mr-2 ml-2">
             <div className="flex items-center gap-2">
               <span className="text-lg font-semibold">${currentPrice}</span>
               <span className="text-sm text-muted-foreground line-through">${originalPrice}</span>
@@ -86,6 +91,5 @@ export function ProductCard({
           </div>
         </div>
       </div>
-    </Link>
   );
 }
